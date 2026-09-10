@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Offres AN DIGITAL</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@400;600;700;800&display=swap');
 
   :root {
     --bg: #FAF6F1;
@@ -72,6 +72,24 @@
 
   .wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 80px; }
 
+  .wrap[dir="rtl"] {
+    font-family: 'Cairo', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .wrap[dir="rtl"] h1,
+  .wrap[dir="rtl"] h2,
+  .wrap[dir="rtl"] h3,
+  .wrap[dir="rtl"] h4 {
+    font-family: 'Cairo', 'Fraunces', Georgia, serif;
+  }
+
+  .wrap[dir="rtl"] .section-label,
+  .wrap[dir="rtl"] .working-note .tag,
+  .wrap[dir="rtl"] .why-card .w-label {
+    font-family: 'Cairo', 'IBM Plex Mono', monospace;
+    letter-spacing: 0;
+  }
+
   h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; }
 
   .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
@@ -88,6 +106,8 @@
 
   .mark { flex: none; }
 
+  .brand-text { flex: 1; min-width: 200px; }
+
   .brand-text h1 {
     font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem);
     font-weight: 600;
@@ -100,6 +120,23 @@
     color: var(--ink-soft);
     font-size: 0.95rem;
   }
+
+  .lang-toggle {
+    flex: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    background: var(--teal-soft);
+    border: 1px solid color-mix(in srgb, var(--teal) 35%, var(--line));
+    border-radius: 999px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .lang-toggle:hover { background: color-mix(in srgb, var(--teal) 22%, var(--surface)); }
+  .lang-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 
   .working-note {
     background: var(--pink-soft);
@@ -176,10 +213,10 @@
   .pack.featured { border-color: color-mix(in srgb, var(--teal) 45%, var(--line)); position: relative; }
 
   .pack.featured::before {
-    content: "Le plus choisi";
+    content: attr(data-badge);
     position: absolute;
     top: -11px;
-    left: 22px;
+    inset-inline-start: 22px;
     background: var(--teal);
     color: #fff;
     font-family: 'IBM Plex Mono', monospace;
@@ -189,6 +226,11 @@
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: 999px;
+  }
+
+  .wrap[dir="rtl"] .pack.featured::before {
+    font-family: 'Cairo', sans-serif;
+    letter-spacing: 0;
   }
 
   .pack-name { font-size: 1.2rem; font-weight: 600; color: var(--ink); }
@@ -203,6 +245,8 @@
     line-height: 1.25;
   }
 
+  .wrap[dir="rtl"] .pack-price { font-family: 'Cairo', monospace; }
+
   .pack-price small {
     font-family: 'Manrope', sans-serif;
     font-size: 0.75rem;
@@ -211,6 +255,8 @@
     display: block;
     margin-top: 2px;
   }
+
+  .wrap[dir="rtl"] .pack-price small { font-family: 'Cairo', sans-serif; }
 
   .pack ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
 
@@ -265,12 +311,14 @@
 
   .quote-item .q-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
   .quote-item .q-tag { font-size: 0.8rem; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
-  .quote-item .q-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.86rem; color: var(--pink-deep); text-align: right; white-space: nowrap; }
-  .quote-item .q-unit { font-size: 0.68rem; color: var(--ink-faint); text-align: right; margin-top: 2px; }
+  .quote-item .q-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.86rem; color: var(--pink-deep); text-align: end; white-space: nowrap; }
+  .quote-item .q-unit { font-size: 0.68rem; color: var(--ink-faint); text-align: end; margin-top: 2px; }
+
+  .wrap[dir="rtl"] .quote-item .q-price { font-family: 'Cairo', monospace; }
 
   @media (max-width: 480px) {
     .quote-item { flex-direction: column; }
-    .quote-item .q-price, .quote-item .q-unit { text-align: left; }
+    .quote-item .q-price, .quote-item .q-unit { text-align: start; }
   }
 
   .quote-note {
@@ -319,7 +367,9 @@
 
   .faq-q .q-mark { flex: none; color: var(--pink); font-family: 'Fraunces', serif; font-weight: 600; }
 
-  .faq-a { margin: 8px 0 0 22px; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; }
+  .wrap[dir="rtl"] .faq-q .q-mark { font-family: 'Cairo', sans-serif; }
+
+  .faq-a { margin-block-start: 8px; margin-inline-start: 22px; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; }
 
   footer {
     border-top: 1px solid var(--line);
@@ -340,7 +390,7 @@
 <body>
 
 
-<div class="wrap">
+<div class="wrap" id="pageWrap" dir="ltr">
 
   <header class="top">
     <svg class="mark" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -354,169 +404,213 @@
     </svg>
     <div class="brand-text">
       <h1>AN DIGITAL</h1>
-      <p>Grille d'offres &amp; explications budget — à consulter en rendez-vous client</p>
+      <p data-ar="قائمة العروض والتفاصيل — للاطّلاع أثناء لقاء العميل">Grille d'offres &amp; explications budget — à consulter en rendez-vous client</p>
     </div>
+    <button type="button" class="lang-toggle" id="langToggle">العربية</button>
   </header>
 
   <div class="working-note">
-    <span class="tag">Repère</span>
-    <p><strong>Note pour toi :</strong> les trois forfaits mensuels ci-dessous reprennent tes tarifs réels. Les prestations ponctuelles (site, branding, photo, vidéo, influence) restent estimatives — le prix exact se fixe par devis, selon le projet et l'entreprise.</p>
+    <span class="tag" data-ar="ملاحظة">Repère</span>
+    <p><strong data-ar="ملاحظة لك:">Note pour toi :</strong> <span data-ar="الباقات الشهرية الثلاث أدناه تعكس أسعارك الحقيقية. الخدمات الفردية (الموقع، الهوية، التصوير، الفيديو، التسويق عبر المؤثرين) تبقى تقديرية — يُحدَّد السعر النهائي حسب عرض السعر، والمشروع، والشركة.">les trois forfaits mensuels ci-dessous reprennent tes tarifs réels. Les prestations ponctuelles (site, branding, photo, vidéo, influence) restent estimatives — le prix exact se fixe par devis, selon le projet et l'entreprise.</span></p>
   </div>
 
   <div class="intro">
-    <h2>Comment utiliser cette page</h2>
-    <p>Cette page rassemble tes trois forfaits mensuels, les prestations ponctuelles facturées à part, et les réponses aux questions que les clients posent le plus souvent sur le budget. Ouvre-la pendant l'appel ou le rendez-vous dès qu'une question sur le prix arrive.</p>
+    <h2 data-ar="كيفية استخدام هذه الصفحة">Comment utiliser cette page</h2>
+    <p data-ar="تجمع هذه الصفحة باقاتك الشهرية الثلاث، والخدمات الفردية المحتسبة بشكل منفصل، وأجوبة الأسئلة التي يطرحها العملاء غالبًا حول الميزانية. افتحها أثناء المكالمة أو اللقاء بمجرد طرح سؤال حول السعر.">Cette page rassemble tes trois forfaits mensuels, les prestations ponctuelles facturées à part, et les réponses aux questions que les clients posent le plus souvent sur le budget. Ouvre-la pendant l'appel ou le rendez-vous dès qu'une question sur le prix arrive.</p>
   </div>
 
   <section id="packs">
-    <span class="section-label">Forfaits mensuels</span>
-    <h3 class="section-title">Trois niveaux d'accompagnement récurrent</h3>
-    <p class="section-sub">Facturés chaque mois. Le volume exact (nombre de posts, de formats) se cale sur les besoins du client à l'intérieur de chaque forfait.</p>
+    <span class="section-label" data-ar="الباقات الشهرية">Forfaits mensuels</span>
+    <h3 class="section-title" data-ar="ثلاثة مستويات من المرافقة الشهرية">Trois niveaux d'accompagnement récurrent</h3>
+    <p class="section-sub" data-ar="تُحتسب شهريًا. الحجم الدقيق (عدد المنشورات والصيغ) يُضبط حسب احتياجات العميل داخل كل باقة.">Facturés chaque mois. Le volume exact (nombre de posts, de formats) se cale sur les besoins du client à l'intérieur de chaque forfait.</p>
 
     <div class="packs">
 
       <div class="pack">
         <div>
-          <div class="pack-name">Essentiel</div>
-          <div class="pack-tagline">Une présence gérée et suivie chaque mois</div>
+          <div class="pack-name" data-ar="الأساسية">Essentiel</div>
+          <div class="pack-tagline" data-ar="حضور يُدار ويُتابَع كل شهر">Une présence gérée et suivie chaque mois</div>
         </div>
-        <div class="pack-price mono">3 000–4 000 DH<small>par mois</small></div>
+        <div class="pack-price mono"><span data-ar="3 000–4 000 درهم">3 000–4 000 DH</span><small data-ar="شهريًا">par mois</small></div>
         <ul>
-          <li>Gestion de communauté (réseaux sociaux)</li>
-          <li>Analyse &amp; performance</li>
-          <li>Création de contenu</li>
-          <li class="pack-volume">1 reel + 3 publications/mois inclus</li>
-          <li class="pack-plus">+ un plus selon vos besoins</li>
+          <li data-ar="إدارة المجتمع (شبكات التواصل الاجتماعي)">Gestion de communauté (réseaux sociaux)</li>
+          <li data-ar="التحليلات والأداء">Analyse &amp; performance</li>
+          <li data-ar="إنشاء المحتوى">Création de contenu</li>
+          <li class="pack-volume" data-ar="1 ريل + 3 منشورات شهريًا ضمن الباقة">1 reel + 3 publications/mois inclus</li>
+          <li class="pack-plus" data-ar="+ إضافة حسب احتياجاتكم">+ un plus selon vos besoins</li>
         </ul>
-        <div class="pack-for"><strong>Idéal pour :</strong> commerces locaux et indépendants qui démarrent leur présence digitale.</div>
+        <div class="pack-for"><strong data-ar="الأنسب لـ:">Idéal pour :</strong> <span data-ar="المحلات المحلية والمستقلين الذين يبدأون حضورهم الرقمي.">commerces locaux et indépendants qui démarrent leur présence digitale.</span></div>
       </div>
 
-      <div class="pack featured">
+      <div class="pack featured" data-badge="Le plus choisi">
         <div>
-          <div class="pack-name">Croissance</div>
-          <div class="pack-tagline">Plus de contenu, une stratégie, un suivi rapproché</div>
+          <div class="pack-name" data-ar="النمو">Croissance</div>
+          <div class="pack-tagline" data-ar="محتوى أكثر، استراتيجية، ومتابعة أقرب">Plus de contenu, une stratégie, un suivi rapproché</div>
         </div>
-        <div class="pack-price mono">6 000–8 000 DH<small>par mois</small></div>
+        <div class="pack-price mono"><span data-ar="6 000–8 000 درهم">6 000–8 000 DH</span><small data-ar="شهريًا">par mois</small></div>
         <ul>
-          <li>Tout le pack Essentiel</li>
-          <li>Création de contenu renforcée : plus de formats, plus de volume</li>
-          <li>Stratégie marketing</li>
-          <li>Réunions de suivi régulières</li>
-          <li>Gestion des publicités (Meta/Google), adaptée à chaque entreprise</li>
-          <li class="pack-volume">3 reels + 7 publications/mois + 2 stories/jour inclus</li>
+          <li data-ar="كل ما تتضمنه الباقة الأساسية">Tout le pack Essentiel</li>
+          <li data-ar="إنشاء محتوى معزز: صيغ أكثر وحجم أكبر">Création de contenu renforcée : plus de formats, plus de volume</li>
+          <li data-ar="استراتيجية تسويقية">Stratégie marketing</li>
+          <li data-ar="اجتماعات متابعة منتظمة">Réunions de suivi régulières</li>
+          <li data-ar="إدارة الإعلانات (Meta/Google) حسب كل شركة">Gestion des publicités (Meta/Google), adaptée à chaque entreprise</li>
+          <li class="pack-volume" data-ar="3 ريلز + 7 منشورات شهريًا + قصتان يوميًا ضمن الباقة">3 reels + 7 publications/mois + 2 stories/jour inclus</li>
+          <li class="pack-plus" data-ar="+ إضافة حسب احتياجاتكم">+ un plus selon vos besoins</li>
         </ul>
-        <div class="pack-for"><strong>Idéal pour :</strong> entreprises qui veulent une présence de contenu plus soutenue et un accompagnement stratégique.</div>
+        <div class="pack-for"><strong data-ar="الأنسب لـ:">Idéal pour :</strong> <span data-ar="الشركات التي تريد حضورًا أقوى في المحتوى ومرافقة استراتيجية.">entreprises qui veulent une présence de contenu plus soutenue et un accompagnement stratégique.</span></div>
       </div>
 
       <div class="pack">
         <div>
           <div class="pack-name">360°</div>
-          <div class="pack-tagline">Tout le marketing récurrent, délégué</div>
+          <div class="pack-tagline" data-ar="كل التسويق المتكرر، بتفويض كامل">Tout le marketing récurrent, délégué</div>
         </div>
-        <div class="pack-price mono">8 500–15 000 DH<small>par mois</small></div>
+        <div class="pack-price mono"><span data-ar="8 500–15 000 درهم">8 500–15 000 DH</span><small data-ar="شهريًا">par mois</small></div>
         <ul>
-          <li>Tout le pack Croissance</li>
-          <li>Stratégie marketing &amp; direction créative</li>
-          <li>SEO &amp; visibilité web</li>
-          <li>Publicité &amp; médias payants, achat média</li>
-          <li>Génération de leads &amp; ventes</li>
-          <li>Communication d'entreprise &amp; rédaction publicitaire</li>
-          <li class="pack-volume">6 reels + publications selon stratégie + 2 à 4 stories/jour selon la stratégie</li>
+          <li data-ar="كل ما تتضمنه باقة النمو">Tout le pack Croissance</li>
+          <li data-ar="استراتيجية تسويقية وإدارة إبداعية">Stratégie marketing &amp; direction créative</li>
+          <li data-ar="تحسين محركات البحث والظهور الرقمي">SEO &amp; visibilité web</li>
+          <li data-ar="الإعلانات والوسائط المدفوعة، شراء الوسائط">Publicité &amp; médias payants, achat média</li>
+          <li data-ar="توليد العملاء المحتملين والمبيعات">Génération de leads &amp; ventes</li>
+          <li data-ar="التواصل المؤسسي والكتابة الإعلانية">Communication d'entreprise &amp; rédaction publicitaire</li>
+          <li class="pack-volume" data-ar="6 ريلز + منشورات حسب الاستراتيجية + 2 إلى 4 قصص يوميًا حسب الاستراتيجية">6 reels + publications selon stratégie + 2 à 4 stories/jour selon la stratégie</li>
+          <li class="pack-plus" data-ar="+ إضافة حسب احتياجاتكم">+ un plus selon vos besoins</li>
         </ul>
-        <div class="pack-for"><strong>Idéal pour :</strong> entreprises prêtes à déléguer tout leur marketing récurrent.</div>
+        <div class="pack-for"><strong data-ar="الأنسب لـ:">Idéal pour :</strong> <span data-ar="الشركات المستعدة لتفويض كل تسويقها المتكرر بالكامل.">entreprises prêtes à déléguer tout leur marketing récurrent.</span></div>
       </div>
 
     </div>
   </section>
 
   <section id="quote">
-    <span class="section-label">Prestations ponctuelles</span>
-    <h3 class="section-title">Ce qui se facture à part, sur devis</h3>
-    <p class="section-sub">Réalisées une fois, ou tous les 3 à 6 mois selon le client. Les montants ci-dessous sont indicatifs — le devis final dépend du projet et de l'entreprise.</p>
+    <span class="section-label" data-ar="خدمات فردية">Prestations ponctuelles</span>
+    <h3 class="section-title" data-ar="ما يُحتسب بشكل منفصل، حسب عرض السعر">Ce qui se facture à part, sur devis</h3>
+    <p class="section-sub" data-ar="تُنجز مرة واحدة، أو كل 3 إلى 6 أشهر حسب العميل. المبالغ أدناه إرشادية — يعتمد عرض السعر النهائي على المشروع والشركة.">Réalisées une fois, ou tous les 3 à 6 mois selon le client. Les montants ci-dessous sont indicatifs — le devis final dépend du projet et de l'entreprise.</p>
 
     <div class="quote-list">
       <div class="quote-item">
-        <div><div class="q-name">Conception &amp; développement web</div><div class="q-tag">Un site pensé pour convertir, pas seulement pour exister.</div></div>
-        <div><div class="q-price mono">≈ 4 000–15 000 DH</div><div class="q-unit">projet, sur devis</div></div>
+        <div><div class="q-name" data-ar="تصميم وتطوير المواقع">Conception &amp; développement web</div><div class="q-tag" data-ar="موقع مصمَّم للتحويل، لا فقط للتواجد.">Un site pensé pour convertir, pas seulement pour exister.</div></div>
+        <div><div class="q-price mono" data-ar="≈ 4 000–15 000 درهم">≈ 4 000–15 000 DH</div><div class="q-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Identité de marque</div><div class="q-tag">Une identité que l'on reconnaît avant même de lire le nom.</div></div>
-        <div><div class="q-price mono">≈ 3 000–8 000 DH</div><div class="q-unit">projet, sur devis</div></div>
+        <div><div class="q-name" data-ar="الهوية البصرية">Identité de marque</div><div class="q-tag" data-ar="هوية يمكن التعرف عليها حتى قبل قراءة الاسم.">Une identité que l'on reconnaît avant même de lire le nom.</div></div>
+        <div><div class="q-price mono" data-ar="≈ 3 000–8 000 درهم">≈ 3 000–8 000 DH</div><div class="q-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Photographie</div><div class="q-tag">Des visuels qui donnent envie d'acheter avant même de lire la description.</div></div>
-        <div><div class="q-price mono">≈ 1 500–4 000 DH</div><div class="q-unit">par séance, sur devis</div></div>
+        <div><div class="q-name" data-ar="التصوير الفوتوغرافي">Photographie</div><div class="q-tag" data-ar="صور تمنح رغبة في الشراء حتى قبل قراءة الوصف.">Des visuels qui donnent envie d'acheter avant même de lire la description.</div></div>
+        <div><div class="q-price mono" data-ar="≈ 1 500–4 000 درهم">≈ 1 500–4 000 DH</div><div class="q-unit" data-ar="للجلسة، حسب عرض السعر">par séance, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Vidéographie &amp; montage</div><div class="q-tag">Des vidéos qui retiennent l'attention plus de trois secondes.</div></div>
-        <div><div class="q-price mono">≈ 2 000–6 000 DH</div><div class="q-unit">par vidéo, sur devis</div></div>
+        <div><div class="q-name" data-ar="التصوير بالفيديو والمونتاج">Vidéographie &amp; montage</div><div class="q-tag" data-ar="فيديوهات تحافظ على الانتباه لأكثر من ثلاث ثوانٍ.">Des vidéos qui retiennent l'attention plus de trois secondes.</div></div>
+        <div><div class="q-price mono" data-ar="≈ 2 000–6 000 درهم">≈ 2 000–6 000 DH</div><div class="q-unit" data-ar="للفيديو، حسب عرض السعر">par vidéo, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Marketing d'influence</div><div class="q-tag">Une crédibilité empruntée aux bonnes voix, pas aux plus grosses audiences.</div></div>
-        <div><div class="q-price mono">≈ 2 000–10 000 DH</div><div class="q-unit">par campagne, hors cachets</div></div>
+        <div><div class="q-name" data-ar="التسويق عبر المؤثرين">Marketing d'influence</div><div class="q-tag" data-ar="مصداقية مستمدة من الأصوات المناسبة، لا من أكبر الجماهير.">Une crédibilité empruntée aux bonnes voix, pas aux plus grosses audiences.</div></div>
+        <div><div class="q-price mono" data-ar="≈ 2 000–10 000 درهم">≈ 2 000–10 000 DH</div><div class="q-unit" data-ar="للحملة، غير شامل لأجور المؤثرين">par campagne, hors cachets</div></div>
       </div>
     </div>
-    <p class="quote-note">Ces montants sont des repères de marché, pas des tarifs figés — à ajuster projet par projet.</p>
+    <p class="quote-note" data-ar="هذه المبالغ مؤشرات من السوق وليست أسعارًا ثابتة — تُعدَّل حسب كل مشروع.">Ces montants sont des repères de marché, pas des tarifs figés — à ajuster projet par projet.</p>
   </section>
 
   <section id="why">
-    <span class="section-label">Justification du budget</span>
-    <h3 class="section-title">Ce qu'il faut savoir avant de discuter chiffres</h3>
+    <span class="section-label" data-ar="تبرير الميزانية">Justification du budget</span>
+    <h3 class="section-title" data-ar="ما يجب معرفته قبل الحديث عن الأرقام">Ce qu'il faut savoir avant de discuter chiffres</h3>
 
     <div class="why-grid">
       <div class="why-card">
-        <span class="w-label">Forfait vs sur devis</span>
-        <p>Les trois forfaits couvrent le travail récurrent, mensuel. Le site, le branding, la photo, la vidéo et les campagnes d'influence sont ponctuels — chacun est chiffré par devis selon le projet.</p>
+        <span class="w-label" data-ar="باقة مقابل عرض سعر">Forfait vs sur devis</span>
+        <p data-ar="الباقات الثلاث تغطي العمل المتكرر الشهري. الموقع، الهوية، التصوير، الفيديو، وحملات التسويق عبر المؤثرين هي خدمات فردية — يُحدَّد سعر كل واحدة بعرض سعر خاص حسب المشروع.">Les trois forfaits couvrent le travail récurrent, mensuel. Le site, le branding, la photo, la vidéo et les campagnes d'influence sont ponctuels — chacun est chiffré par devis selon le projet.</p>
       </div>
       <div class="why-card">
-        <span class="w-label">Budget publicitaire à part</span>
-        <p>Le forfait 360° couvre le travail de gestion des campagnes (publicité, achat média). Le budget diffusé sur Meta ou Google est payé séparément, directement à la plateforme.</p>
+        <span class="w-label" data-ar="ميزانية الإعلانات منفصلة">Budget publicitaire à part</span>
+        <p data-ar="باقة 360° تغطي عمل إدارة الحملات (الإعلانات، شراء الوسائط). الميزانية التي تُصرف على Meta أو Google تُدفع بشكل منفصل، مباشرة إلى المنصة.">Le forfait 360° couvre le travail de gestion des campagnes (publicité, achat média). Le budget diffusé sur Meta ou Google est payé séparément, directement à la plateforme.</p>
       </div>
       <div class="why-card">
-        <span class="w-label">Le volume ajuste le prix</span>
-        <p>À l'intérieur de chaque forfait, le nombre de publications, de formats ou de canaux gérés peut faire varier le prix final — précisé après un court brief.</p>
+        <span class="w-label" data-ar="الحجم يحدد السعر">Le volume ajuste le prix</span>
+        <p data-ar="داخل كل باقة، يمكن أن يتغير السعر النهائي حسب عدد المنشورات أو الصيغ أو القنوات المُدارة — يُحدَّد بدقة بعد اجتماع تعريفي قصير.">À l'intérieur de chaque forfait, le nombre de publications, de formats ou de canaux gérés peut faire varier le prix final — précisé après un court brief.</p>
       </div>
     </div>
   </section>
 
   <section id="faq">
-    <span class="section-label">Questions fréquentes</span>
-    <h3 class="section-title">Ce que les clients demandent le plus</h3>
+    <span class="section-label" data-ar="الأسئلة الشائعة">Questions fréquentes</span>
+    <h3 class="section-title" data-ar="الأسئلة الأكثر تكرارًا من العملاء">Ce que les clients demandent le plus</h3>
 
     <div class="faq">
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Pourquoi le site web n'est pas dans un forfait mensuel ?</div>
-        <div class="faq-a">Un site est un projet ponctuel : conception, développement, livraison une fois. Il est facturé séparément, sur devis, indépendamment du forfait mensuel choisi.</div>
+        <div class="faq-q"><span class="q-mark" data-ar="س.">Q.</span> <span data-ar="لماذا الموقع الإلكتروني غير مُدرج ضمن باقة شهرية؟">Pourquoi le site web n'est pas dans un forfait mensuel ?</span></div>
+        <div class="faq-a" data-ar="الموقع مشروع فردي: تصميم، تطوير، وتسليم لمرة واحدة. يُحتسب بشكل منفصل، حسب عرض سعر، بغض النظر عن الباقة الشهرية المختارة.">Un site est un projet ponctuel : conception, développement, livraison une fois. Il est facturé séparément, sur devis, indépendamment du forfait mensuel choisi.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Le budget publicitaire est-il inclus dans le prix de gestion ?</div>
-        <div class="faq-a">Non. Le prix de gestion couvre le travail de création et d'optimisation des campagnes. Le budget publicitaire — ce qui est dépensé sur Meta ou Google — est payé séparément, directement à la plateforme.</div>
+        <div class="faq-q"><span class="q-mark" data-ar="س.">Q.</span> <span data-ar="هل ميزانية الإعلانات مشمولة في سعر الإدارة؟">Le budget publicitaire est-il inclus dans le prix de gestion ?</span></div>
+        <div class="faq-a" data-ar="لا. سعر الإدارة يغطي عمل إنشاء الحملات وتحسينها. أما ميزانية الإعلانات — ما يُصرف على Meta أو Google — فتُدفع بشكل منفصل، مباشرة إلى المنصة.">Non. Le prix de gestion couvre le travail de création et d'optimisation des campagnes. Le budget publicitaire — ce qui est dépensé sur Meta ou Google — est payé séparément, directement à la plateforme.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Pourquoi ne pas gérer ça moi-même avec un budget plus petit ?</div>
-        <div class="faq-a">C'est possible, mais un ciblage mal ajusté ou un contenu irrégulier coûte souvent plus cher en résultats perdus qu'en frais de gestion. On s'occupe du ciblage, des tests et de l'optimisation continue pour que chaque dirham dépensé travaille.</div>
+        <div class="faq-q"><span class="q-mark" data-ar="س.">Q.</span> <span data-ar="لماذا لا أدير هذا بنفسي بميزانية أصغر؟">Pourquoi ne pas gérer ça moi-même avec un budget plus petit ?</span></div>
+        <div class="faq-a" data-ar="هذا ممكن، لكن استهدافًا غير دقيق أو محتوى غير منتظم غالبًا ما يكلف أكثر في النتائج الضائعة مما يكلفه رسم الإدارة. نتكفل بالاستهداف والاختبار والتحسين المستمر حتى يعمل كل درهم يُصرف.">C'est possible, mais un ciblage mal ajusté ou un contenu irrégulier coûte souvent plus cher en résultats perdus qu'en frais de gestion. On s'occupe du ciblage, des tests et de l'optimisation continue pour que chaque dirham dépensé travaille.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Combien de temps avant de voir des résultats ?</div>
-        <div class="faq-a">Pour la présence sur les réseaux, une progression visible apparaît après 4 à 6 semaines. Pour la publicité, les premières données fiables arrivent après 1 à 2 semaines de diffusion, le temps que l'algorithme optimise.</div>
+        <div class="faq-q"><span class="q-mark" data-ar="س.">Q.</span> <span data-ar="كم من الوقت يلزم لرؤية النتائج؟">Combien de temps avant de voir des résultats ?</span></div>
+        <div class="faq-a" data-ar="بالنسبة للحضور على الشبكات الاجتماعية، يظهر تقدم ملحوظ بعد 4 إلى 6 أسابيع. أما بالنسبة للإعلانات، فتصل أولى البيانات الموثوقة بعد أسبوع إلى أسبوعين من البث، ريثما تُحسّن الخوارزمية النتائج.">Pour la présence sur les réseaux, une progression visible apparaît après 4 à 6 semaines. Pour la publicité, les premières données fiables arrivent après 1 à 2 semaines de diffusion, le temps que l'algorithme optimise.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Peut-on changer de forfait en cours de route ?</div>
-        <div class="faq-a">Oui. Les forfaits évoluent avec les besoins du client — l'ajustement se fait au début de chaque mois, sans frais de changement.</div>
+        <div class="faq-q"><span class="q-mark" data-ar="س.">Q.</span> <span data-ar="هل يمكن تغيير الباقة في أي وقت؟">Peut-on changer de forfait en cours de route ?</span></div>
+        <div class="faq-a" data-ar="نعم. الباقات تتطور حسب احتياجات العميل — يتم التعديل في بداية كل شهر، دون أي رسوم إضافية.">Oui. Les forfaits évoluent avec les besoins du client — l'ajustement se fait au début de chaque mois, sans frais de changement.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Y a-t-il un engagement minimum ?</div>
-        <div class="faq-a">Un minimum de 3 mois est recommandé pour laisser le temps aux actions de porter leurs fruits, mais chaque collaboration se discute selon le projet.</div>
+        <div class="faq-q"><span class="q-mark" data-ar="س.">Q.</span> <span data-ar="هل هناك حد أدنى للالتزام؟">Y a-t-il un engagement minimum ?</span></div>
+        <div class="faq-a" data-ar="يُنصح بحد أدنى 3 أشهر لإعطاء الوقت الكافي لتؤتي الإجراءات ثمارها، لكن كل تعاون يمكن مناقشته حسب المشروع.">Un minimum de 3 mois est recommandé pour laisser le temps aux actions de porter leurs fruits, mais chaque collaboration se discute selon le projet.</div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="contact"><strong>AN DIGITAL</strong> — Agadir, Maroc</div>
-    <div class="contact">[ton email pro] · [ton téléphone]</div>
+    <div class="contact"><strong>AN DIGITAL</strong> <span data-ar=" — أكادير، المغرب"> — Agadir, Maroc</span></div>
+    <div class="contact" data-ar="[بريدك الإلكتروني المهني] · [رقم هاتفك]">[ton email pro] · [ton téléphone]</div>
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var wrap = document.getElementById('pageWrap');
+  var toggle = document.getElementById('langToggle');
+  if (!wrap || !toggle) return;
+
+  var STORAGE_KEY = 'an-digital-offres-lang';
+  var els = wrap.querySelectorAll('[data-ar]');
+
+  els.forEach(function (el) {
+    el.dataset.fr = el.textContent;
+  });
+
+  function setLang(lang) {
+    els.forEach(function (el) {
+      el.textContent = lang === 'ar' ? el.dataset.ar : el.dataset.fr;
+    });
+
+    var featured = wrap.querySelector('.pack.featured');
+    if (featured) {
+      featured.setAttribute('data-badge', lang === 'ar' ? 'الأكثر اختيارًا' : 'Le plus choisi');
+    }
+
+    wrap.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    wrap.setAttribute('lang', lang);
+    toggle.textContent = lang === 'ar' ? 'Français' : 'العربية';
+
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  var initial = 'fr';
+  try { initial = localStorage.getItem(STORAGE_KEY) || 'fr'; } catch (e) {}
+  setLang(initial);
+
+  toggle.addEventListener('click', function () {
+    var current = wrap.getAttribute('dir') === 'rtl' ? 'ar' : 'fr';
+    setLang(current === 'ar' ? 'fr' : 'ar');
+  });
+})();
+</script>
 
 </body>
 </html>
