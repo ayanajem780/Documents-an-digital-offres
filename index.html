@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Offres AN DIGITAL</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@400;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@400;600;700;800&family=Poppins:wght@700;800&display=swap');
 
   :root {
     --bg: #FAF6F1;
@@ -76,7 +76,6 @@
     font-family: 'Cairo', 'Manrope', ui-sans-serif, system-ui, sans-serif;
   }
 
-  .wrap[dir="rtl"] h1,
   .wrap[dir="rtl"] h2,
   .wrap[dir="rtl"] h3,
   .wrap[dir="rtl"] h4 {
@@ -108,12 +107,15 @@
 
   .brand-text { flex: 1; min-width: 200px; }
 
-  .brand-text h1 {
-    font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem);
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: -0.01em;
+  .wordmark {
+    font-family: 'Poppins', 'Manrope', sans-serif;
+    font-size: clamp(1.3rem, 1rem + 1.4vw, 1.7rem);
+    font-weight: 800;
+    letter-spacing: 0.01em;
   }
+
+  .wm-an { color: var(--ink); }
+  .wm-digital { color: var(--pink); }
 
   .brand-text p {
     margin: 4px 0 0;
@@ -399,17 +401,12 @@
 <div class="wrap" id="pageWrap" dir="ltr">
 
   <header class="top">
-    <svg class="mark" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="markGrad" x1="4" y1="6" x2="44" y2="42" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#3D785E"/>
-          <stop offset="1" stop-color="#C85980"/>
-        </linearGradient>
-      </defs>
-      <path d="M6 34C6 34 14 8 24 8C34 8 30 30 24 30C18 30 20 12 28 12C38 12 34 40 42 40" stroke="url(#markGrad)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <svg class="mark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6 27C6 27 8 15 15 13C20.5 11.4 19 20 24.5 18C28 16.8 27.5 10 31.5 9" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <circle cx="32.5" cy="8" r="3.4" fill="var(--pink)"/>
     </svg>
     <div class="brand-text">
-      <h1>AN DIGITAL</h1>
+      <h1 class="wordmark"><span class="wm-an">AN</span><span class="wm-digital">DIGITAL</span></h1>
       <p data-ar="قائمة العروض والتفاصيل — للاطّلاع أثناء لقاء العميل">Grille d'offres &amp; explications budget — à consulter en rendez-vous client</p>
     </div>
     <button type="button" class="lang-toggle" id="langToggle">العربية</button>
