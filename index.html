@@ -216,6 +216,9 @@
 
   .pack li { font-size: 0.88rem; color: var(--ink); display: flex; gap: 8px; line-height: 1.4; }
 
+  .pack li.pack-plus { color: var(--pink-deep); font-style: italic; }
+  .pack li.pack-plus::before { background: var(--pink); }
+
   .pack li::before {
     content: "";
     flex: none;
@@ -367,11 +370,12 @@
           <div class="pack-name">Essentiel</div>
           <div class="pack-tagline">Une présence gérée et suivie chaque mois</div>
         </div>
-        <div class="pack-price mono">3 000 DH<small>par mois</small></div>
+        <div class="pack-price mono">3 000–4 000 DH<small>par mois</small></div>
         <ul>
-          <li>Community management (Social Media Management)</li>
-          <li>Analytics &amp; Performance</li>
-          <li>Content Creation</li>
+          <li>Gestion de communauté (réseaux sociaux)</li>
+          <li>Analyse &amp; performance</li>
+          <li>Création de contenu</li>
+          <li class="pack-plus">+ un plus selon vos besoins</li>
         </ul>
         <div class="pack-for"><strong>Idéal pour :</strong> commerces locaux et indépendants qui démarrent leur présence digitale.</div>
       </div>
@@ -379,14 +383,17 @@
       <div class="pack featured">
         <div>
           <div class="pack-name">Croissance</div>
-          <div class="pack-tagline">Plus de contenu, plus de visibilité</div>
+          <div class="pack-tagline">Plus de contenu, une stratégie, un suivi rapproché</div>
         </div>
-        <div class="pack-price mono">5 000–7 000 DH<small>par mois</small></div>
+        <div class="pack-price mono">6 000–8 000 DH<small>par mois</small></div>
         <ul>
           <li>Tout le pack Essentiel</li>
-          <li>Content Creation renforcée : plus de formats, plus de volume</li>
+          <li>Création de contenu renforcée : plus de formats, plus de volume</li>
+          <li>Stratégie marketing</li>
+          <li>Réunions de suivi régulières</li>
+          <li>Gestion des publicités (Meta/Google), adaptée à chaque entreprise</li>
         </ul>
-        <div class="pack-for"><strong>Idéal pour :</strong> entreprises qui veulent une présence de contenu plus soutenue.</div>
+        <div class="pack-for"><strong>Idéal pour :</strong> entreprises qui veulent une présence de contenu plus soutenue et un accompagnement stratégique.</div>
       </div>
 
       <div class="pack">
@@ -394,14 +401,14 @@
           <div class="pack-name">360°</div>
           <div class="pack-tagline">Tout le marketing récurrent, délégué</div>
         </div>
-        <div class="pack-price mono">7 500–15 000 DH<small>par mois</small></div>
+        <div class="pack-price mono">8 500–15 000 DH<small>par mois</small></div>
         <ul>
           <li>Tout le pack Croissance</li>
-          <li>Marketing Strategy &amp; Creative Direction</li>
-          <li>SEO &amp; Web Visibility</li>
-          <li>Advertising &amp; Paid Media, Media Buying</li>
-          <li>Lead Generation &amp; Sales</li>
-          <li>Corporate Communication &amp; Copywriting</li>
+          <li>Stratégie marketing &amp; direction créative</li>
+          <li>SEO &amp; visibilité web</li>
+          <li>Publicité &amp; médias payants, achat média</li>
+          <li>Génération de leads &amp; ventes</li>
+          <li>Communication d'entreprise &amp; rédaction publicitaire</li>
         </ul>
         <div class="pack-for"><strong>Idéal pour :</strong> entreprises prêtes à déléguer tout leur marketing récurrent.</div>
       </div>
@@ -416,23 +423,23 @@
 
     <div class="quote-list">
       <div class="quote-item">
-        <div><div class="q-name">Web Design &amp; Development</div><div class="q-tag">Un site pensé pour convertir, pas seulement pour exister.</div></div>
+        <div><div class="q-name">Conception &amp; développement web</div><div class="q-tag">Un site pensé pour convertir, pas seulement pour exister.</div></div>
         <div><div class="q-price mono">≈ 4 000–15 000 DH</div><div class="q-unit">projet, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Branding &amp; Identity</div><div class="q-tag">Une identité que l'on reconnaît avant même de lire le nom.</div></div>
+        <div><div class="q-name">Identité de marque</div><div class="q-tag">Une identité que l'on reconnaît avant même de lire le nom.</div></div>
         <div><div class="q-price mono">≈ 3 000–8 000 DH</div><div class="q-unit">projet, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Photography</div><div class="q-tag">Des visuels qui donnent envie d'acheter avant même de lire la description.</div></div>
+        <div><div class="q-name">Photographie</div><div class="q-tag">Des visuels qui donnent envie d'acheter avant même de lire la description.</div></div>
         <div><div class="q-price mono">≈ 1 500–4 000 DH</div><div class="q-unit">par séance, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Videography &amp; Video Editing</div><div class="q-tag">Des vidéos qui retiennent l'attention plus de trois secondes.</div></div>
+        <div><div class="q-name">Vidéographie &amp; montage</div><div class="q-tag">Des vidéos qui retiennent l'attention plus de trois secondes.</div></div>
         <div><div class="q-price mono">≈ 2 000–6 000 DH</div><div class="q-unit">par vidéo, sur devis</div></div>
       </div>
       <div class="quote-item">
-        <div><div class="q-name">Influencer Marketing</div><div class="q-tag">Une crédibilité empruntée aux bonnes voix, pas aux plus grosses audiences.</div></div>
+        <div><div class="q-name">Marketing d'influence</div><div class="q-tag">Une crédibilité empruntée aux bonnes voix, pas aux plus grosses audiences.</div></div>
         <div><div class="q-price mono">≈ 2 000–10 000 DH</div><div class="q-unit">par campagne, hors cachets</div></div>
       </div>
     </div>
@@ -450,7 +457,7 @@
       </div>
       <div class="why-card">
         <span class="w-label">Budget publicitaire à part</span>
-        <p>Le forfait 360° couvre le travail de gestion des campagnes (Advertising, Media Buying). Le budget diffusé sur Meta ou Google est payé séparément, directement à la plateforme.</p>
+        <p>Le forfait 360° couvre le travail de gestion des campagnes (publicité, achat média). Le budget diffusé sur Meta ou Google est payé séparément, directement à la plateforme.</p>
       </div>
       <div class="why-card">
         <span class="w-label">Le volume ajuste le prix</span>
