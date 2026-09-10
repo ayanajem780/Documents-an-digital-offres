@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offres AN DIGITAL</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root {
+    --bg: #FAF6F1;
+    --surface: #FFFFFF;
+    --surface-alt: #F2ECE1;
+    --ink: #1E2B25;
+    --ink-soft: #5C6B61;
+    --ink-faint: #8B968D;
+    --teal: #3D785E;
+    --teal-deep: #26493A;
+    --teal-soft: #DCEAE2;
+    --pink: #C85980;
+    --pink-deep: #A83E64;
+    --pink-soft: #F6DEE7;
+    --line: #E6DFD1;
+    --shadow: 0 1px 2px rgba(30,43,37,0.04), 0 8px 24px -12px rgba(30,43,37,0.14);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121813;
+      --surface: #191F1A;
+      --surface-alt: #1F2620;
+      --ink: #ECEAE4;
+      --ink-soft: #A7B0A8;
+      --ink-faint: #71786F;
+      --teal: #74BC9A;
+      --teal-deep: #3D785E;
+      --teal-soft: #223129;
+      --pink: #E393AF;
+      --pink-deep: #C85980;
+      --pink-soft: #33232A;
+      --line: #2A312A;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #121813;
+    --surface: #191F1A;
+    --surface-alt: #1F2620;
+    --ink: #ECEAE4;
+    --ink-soft: #A7B0A8;
+    --ink-faint: #71786F;
+    --teal: #74BC9A;
+    --teal-deep: #3D785E;
+    --teal-soft: #223129;
+    --pink: #E393AF;
+    --pink-deep: #C85980;
+    --pink-soft: #33232A;
+    --line: #2A312A;
+    --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    padding: 0 20px;
+    line-height: 1.5;
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding-block: 40px 80px; }
+
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; }
+
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  /* Header */
+  header.top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .mark { flex: none; }
+
+  .brand-text h1 {
+    font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .brand-text p {
+    margin: 4px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* Working note */
+  .working-note {
+    background: var(--pink-soft);
+    border: 1px solid color-mix(in srgb, var(--pink) 35%, var(--line));
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 36px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .working-note .tag {
+    flex: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--pink);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-top: 2px;
+  }
+
+  .working-note p { margin: 0; color: var(--ink-soft); }
+  .working-note strong { color: var(--ink); }
+
+  /* Intro */
+  .intro { max-width: 62ch; margin-bottom: 44px; }
+  .intro h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .intro p { color: var(--ink-soft); font-size: 1.02rem; }
+
+  section { margin-bottom: 56px; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .section-sub {
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-top: 6px;
+    font-size: 0.98rem;
+  }
+
+  /* Packages grid */
+  .packs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 26px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 760px) {
+    .packs { grid-template-columns: 1fr; }
+  }
+
+  .pack {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .pack.featured {
+    border-color: color-mix(in srgb, var(--teal) 45%, var(--line));
+    position: relative;
+  }
+
+  .pack.featured::before {
+    content: "Le plus choisi";
+    position: absolute;
+    top: -11px;
+    left: 22px;
+    background: var(--teal);
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .pack-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .pack-tagline {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    margin-top: 4px;
+  }
+
+  .pack-price {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pack-price small {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-faint);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .pack-setup {
+    font-size: 0.82rem;
+    color: var(--pink-deep);
+    font-weight: 600;
+  }
+
+  .pack ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+  }
+
+  .pack li {
+    font-size: 0.88rem;
+    color: var(--ink);
+    display: flex;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .pack li::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin-top: 6px;
+  }
+
+  .pack-for {
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .pack-for strong { color: var(--ink); }
+
+  /* Breakdown table */
+  .breakdown {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .b-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.6fr 1.6fr;
+    gap: 18px;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .b-row:last-child { border-bottom: none; }
+
+  .b-row.head {
+    background: var(--surface-alt);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .b-row .poste { font-weight: 600; color: var(--ink); font-size: 0.92rem; }
+  .b-row .contenu, .b-row .pourquoi { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+
+  @media (max-width: 700px) {
+    .b-row { grid-template-columns: 1fr; gap: 6px; }
+    .b-row.head { display: none; }
+    .b-row .contenu::before { content: "Inclus : "; color: var(--ink-faint); font-weight: 600; }
+    .b-row .pourquoi::before { content: "Pourquoi ce prix : "; color: var(--ink-faint); font-weight: 600; }
+  }
+
+  /* FAQ */
+  .faq { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .faq-q {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--ink);
+    display: flex;
+    gap: 10px;
+  }
+
+  .faq-q .q-mark {
+    flex: none;
+    color: var(--pink);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+  }
+
+  .faq-a {
+    margin: 8px 0 0 22px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+
+  footer .contact { color: var(--ink-soft); }
+  footer .contact strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <svg class="mark" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="markGrad" x1="4" y1="6" x2="44" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#3D785E"/>
+          <stop offset="1" stop-color="#C85980"/>
+        </linearGradient>
+      </defs>
+      <path d="M6 34C6 34 14 8 24 8C34 8 30 30 24 30C18 30 20 12 28 12C38 12 34 40 42 40" stroke="url(#markGrad)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="brand-text">
+      <h1>AN DIGITAL</h1>
+      <p>Grille d'offres &amp; explications budget — à consulter en rendez-vous client</p>
+    </div>
+  </header>
+
+  <div class="working-note">
+    <span class="tag">Brouillon</span>
+    <p><strong>Note pour toi :</strong> les montants ci-dessous sont des exemples de départ (marché Agadir/Maroc) pour t'aider à structurer tes offres. Remplace-les par tes tarifs réels avant de présenter ce document à un client — le reste de la structure (postes, explications, FAQ) est réutilisable tel quel.</p>
+  </div>
+
+  <div class="intro">
+    <h2>Comment utiliser cette page</h2>
+    <p>Cette page rassemble tes trois formules, le détail de ce que chaque poste couvre, et les réponses aux questions que les clients posent le plus souvent sur le budget. Ouvre-la pendant l'appel ou le rendez-vous dès qu'une question sur le prix arrive — tu as la réponse et la justification sous les yeux, sans improviser.</p>
+  </div>
+
+  <section id="packs">
+    <span class="section-label">Formules</span>
+    <h3 class="section-title">Trois façons de travailler ensemble</h3>
+    <p class="section-sub">Chaque formule est un point de départ : elle s'ajuste selon le secteur d'activité, le volume de contenu et les objectifs du client.</p>
+
+    <div class="packs">
+
+      <div class="pack">
+        <div>
+          <div class="pack-name">Essentiel</div>
+          <div class="pack-tagline">Démarrer une présence professionnelle sur les réseaux</div>
+        </div>
+        <div class="pack-price mono">2 500 MAD<small>par mois</small></div>
+        <ul>
+          <li>Gestion de 2 comptes (Instagram + Facebook)</li>
+          <li>12 publications/mois (3 par semaine) + stories quotidiennes</li>
+          <li>Modération des messages et commentaires, réponse sous 24h ouvrées</li>
+          <li>Calendrier éditorial validé avant publication</li>
+          <li>Rapport de performance en fin de mois</li>
+        </ul>
+        <div class="pack-for"><strong>Idéal pour :</strong> commerces locaux et indépendants qui démarrent leur présence digitale.</div>
+      </div>
+
+      <div class="pack featured">
+        <div>
+          <div class="pack-name">Croissance</div>
+          <div class="pack-tagline">Contenu renforcé et site vitrine professionnel</div>
+        </div>
+        <div class="pack-price mono">5 800 MAD<small>par mois</small></div>
+        <div class="pack-setup">+ 4 000 MAD site vitrine (paiement unique)</div>
+        <ul>
+          <li>Tout le pack Essentiel</li>
+          <li>20 publications/mois + 2 reels montés par nos soins</li>
+          <li>Site vitrine 5 pages livré en 3 semaines</li>
+          <li>Hébergement et domaine gérés la 1ère année (renouvellement : 900 MAD/an)</li>
+          <li>Newsletter mensuelle à la base clients</li>
+          <li>Appel de suivi mensuel (30 min)</li>
+        </ul>
+        <div class="pack-for"><strong>Idéal pour :</strong> entreprises en croissance qui veulent professionnaliser leur image en ligne.</div>
+      </div>
+
+      <div class="pack">
+        <div>
+          <div class="pack-name">Sur Mesure</div>
+          <div class="pack-tagline">Stratégie digitale complète, publicité incluse</div>
+        </div>
+        <div class="pack-price mono">9 500 MAD<small>à partir de, par mois</small></div>
+        <div class="pack-setup">Budget publicitaire non inclus</div>
+        <ul>
+          <li>Tout le pack Croissance</li>
+          <li>Gestion des campagnes Meta Ads &amp; Google Ads (ciblage, tests A/B, optimisation hebdomadaire)</li>
+          <li>Automatisations IA : réponses automatiques, reporting, chatbot de qualification</li>
+          <li>Stratégie de contenu trimestrielle avec objectifs chiffrés</li>
+          <li>Rendez-vous stratégique mensuel (1h)</li>
+        </ul>
+        <div class="pack-for"><strong>Idéal pour :</strong> entreprises prêtes à déléguer entièrement leur acquisition digitale.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="breakdown">
+    <span class="section-label">Justification du budget</span>
+    <h3 class="section-title">Ce que chaque poste couvre, et pourquoi ce prix</h3>
+    <p class="section-sub">Le détail à montrer quand un client demande "pourquoi ça coûte ça ?".</p>
+
+    <div class="breakdown">
+      <div class="b-row head">
+        <div>Poste</div>
+        <div>Ce qui est inclus</div>
+        <div>Pourquoi ce prix</div>
+      </div>
+      <div class="b-row">
+        <div class="poste">Community management mensuel</div>
+        <div class="contenu">Création et programmation du contenu, veille, modération, reporting</div>
+        <div class="pourquoi">Représente en moyenne 15 à 20h de travail par mois : conception, design, publication, suivi</div>
+      </div>
+      <div class="b-row">
+        <div class="poste">Création de site vitrine</div>
+        <div class="contenu">Maquette, développement, rédaction, 2 tours de révisions, mise en ligne</div>
+        <div class="pourquoi">Couvre 25 à 35h de travail : conception UX/UI, développement, tests avant livraison</div>
+      </div>
+      <div class="b-row">
+        <div class="poste">Hébergement &amp; maintenance</div>
+        <div class="contenu">Nom de domaine, hébergement, certificat SSL, sauvegardes, mises à jour de sécurité</div>
+        <div class="pourquoi">Coût récurrent payé aux prestataires techniques, plus le suivi de sécurité assuré chaque mois</div>
+      </div>
+      <div class="b-row">
+        <div class="poste">Gestion publicitaire (Meta/Google)</div>
+        <div class="contenu">Configuration des campagnes, ciblage, création des visuels, optimisation hebdomadaire</div>
+        <div class="pourquoi">Facturé séparément de la diffusion : le budget publicitaire va directement à la plateforme, pas à l'agence</div>
+      </div>
+      <div class="b-row">
+        <div class="poste">Automatisation IA</div>
+        <div class="contenu">Configuration d'outils : chatbot, réponses automatiques, reporting automatisé</div>
+        <div class="pourquoi">Investissement ponctuel qui réduit le temps de gestion facturé sur la durée</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <span class="section-label">Questions fréquentes</span>
+    <h3 class="section-title">Ce que les clients demandent le plus</h3>
+
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q.</span> Le budget publicitaire est-il inclus dans le prix de gestion ?</div>
+        <div class="faq-a">Non. Le prix de gestion couvre le travail de création et d'optimisation des campagnes. Le budget publicitaire — ce qui est dépensé sur Meta ou Google — est payé séparément, directement à la plateforme.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q.</span> Pourquoi ne pas gérer ça moi-même avec un budget plus petit ?</div>
+        <div class="faq-a">C'est possible, mais un ciblage mal ajusté ou un contenu irrégulier coûte souvent plus cher en résultats perdus qu'en frais de gestion. On s'occupe du ciblage, des tests et de l'optimisation continue pour que chaque dirham dépensé travaille.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q.</span> Combien de temps avant de voir des résultats ?</div>
+        <div class="faq-a">Pour la présence sur les réseaux, une progression visible apparaît après 4 à 6 semaines. Pour la publicité, les premières données fiables arrivent après 1 à 2 semaines de diffusion, le temps que l'algorithme optimise.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q.</span> Peut-on changer de formule en cours de route ?</div>
+        <div class="faq-a">Oui. Les formules évoluent avec les besoins du client — l'ajustement se fait au début de chaque mois, sans frais de changement.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q.</span> Y a-t-il un engagement minimum ?</div>
+        <div class="faq-a">Un minimum de 3 mois est recommandé pour laisser le temps aux actions de porter leurs fruits, mais chaque collaboration se discute selon le projet.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="contact"><strong>AN DIGITAL</strong> — Agadir, Maroc</div>
+    <div class="contact">[ton email pro] · [ton téléphone]</div>
+  </footer>
+
+</div>
+</body>
+</html>
