@@ -151,57 +151,6 @@
   .section-title { font-size: 1.5rem; font-weight: 500; margin-bottom: 6px; }
   .section-sub { color: var(--ink-soft); max-width: 66ch; margin-top: 6px; font-size: 0.98rem; }
 
-  /* Tariff grid by service */
-  .tariff-groups {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-    margin-top: 28px;
-  }
-
-  @media (max-width: 760px) {
-    .tariff-groups { grid-template-columns: 1fr; }
-  }
-
-  .tariff-group h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--pink-deep);
-    margin-bottom: 10px;
-  }
-
-  .tariff-list {
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: var(--surface);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-
-  .tariff-row {
-    display: grid;
-    grid-template-columns: 1.5fr auto;
-    gap: 14px;
-    padding: 15px 18px;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-  }
-
-  .tariff-row:last-child { border-bottom: none; }
-
-  .t-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
-  .t-tag { font-size: 0.8rem; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
-  .t-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.95rem; color: var(--teal-deep); text-align: right; white-space: nowrap; }
-  .t-unit { font-size: 0.7rem; color: var(--ink-faint); text-align: right; margin-top: 2px; }
-
-  @media (max-width: 600px) {
-    .tariff-row { grid-template-columns: 1fr; }
-    .t-price, .t-unit { text-align: left; }
-  }
-
   /* Packages grid */
   .packs {
     display: grid;
@@ -247,7 +196,7 @@
 
   .pack-price {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.45rem;
+    font-size: 1.55rem;
     font-weight: 600;
     color: var(--teal-deep);
     font-variant-numeric: tabular-nums;
@@ -262,8 +211,6 @@
     display: block;
     margin-top: 2px;
   }
-
-  .pack-setup { font-size: 0.82rem; color: var(--pink-deep); font-weight: 600; }
 
   .pack ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
 
@@ -281,6 +228,44 @@
 
   .pack-for { border-top: 1px solid var(--line); padding-top: 12px; font-size: 0.82rem; color: var(--ink-soft); }
   .pack-for strong { color: var(--ink); }
+
+  /* One-off services on quote */
+  .quote-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 700px) { .quote-list { grid-template-columns: 1fr; } }
+
+  .quote-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .quote-item .q-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+  .quote-item .q-tag { font-size: 0.8rem; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
+  .quote-item .q-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.86rem; color: var(--pink-deep); text-align: right; white-space: nowrap; }
+  .quote-item .q-unit { font-size: 0.68rem; color: var(--ink-faint); text-align: right; margin-top: 2px; }
+
+  @media (max-width: 480px) {
+    .quote-item { flex-direction: column; }
+    .quote-item .q-price, .quote-item .q-unit { text-align: left; }
+  }
+
+  .quote-note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
 
   /* Why-ranges */
   .why-grid {
@@ -361,130 +346,32 @@
   </header>
 
   <div class="working-note">
-    <span class="tag">Brouillon</span>
-    <p><strong>Note pour toi :</strong> les fourchettes ci-dessous reprennent tes 16 services et les calibrent sur les tarifs standards du marché marocain (agences comme DigiVize). Ajuste-les selon ton positionnement réel avant de présenter ce document — la structure et les explications restent utilisables telles quelles.</p>
+    <span class="tag">Repère</span>
+    <p><strong>Note pour toi :</strong> les trois forfaits mensuels ci-dessous reprennent tes tarifs réels. Les prestations ponctuelles (site, branding, photo, vidéo, influence) restent estimatives — le prix exact se fixe par devis, selon le projet et l'entreprise.</p>
   </div>
 
   <div class="intro">
     <h2>Comment utiliser cette page</h2>
-    <p>Cette page couvre tes 16 services avec une fourchette de prix réaliste, trois façons de les combiner en formules, et les réponses aux questions que les clients posent le plus souvent sur le budget. Ouvre-la pendant l'appel ou le rendez-vous dès qu'une question sur le prix arrive.</p>
+    <p>Cette page rassemble tes trois forfaits mensuels, les prestations ponctuelles facturées à part, et les réponses aux questions que les clients posent le plus souvent sur le budget. Ouvre-la pendant l'appel ou le rendez-vous dès qu'une question sur le prix arrive.</p>
   </div>
 
-  <section id="tariffs">
-    <span class="section-label">Grille tarifaire</span>
-    <h3 class="section-title">Tes 16 services, avec une fourchette de prix</h3>
-    <p class="section-sub">Le prix exact dans chaque fourchette dépend du volume et de la complexité — nombre de comptes, de pages, de canaux gérés.</p>
-
-    <div class="tariff-groups">
-
-      <div class="tariff-group">
-        <h4>Stratégie &amp; Direction</h4>
-        <div class="tariff-list">
-          <div class="tariff-row">
-            <div><div class="t-name">Marketing Strategy</div><div class="t-tag">La direction qui rend chaque action rentable, pas seulement visible.</div></div>
-            <div><div class="t-price mono">3 000–6 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Creative Direction</div><div class="t-tag">Une cohérence visuelle qui tient sur douze mois, pas sur une seule campagne.</div></div>
-            <div><div class="t-price mono">4 000–8 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Branding &amp; Identity</div><div class="t-tag">Une identité que l'on reconnaît avant même de lire le nom.</div></div>
-            <div><div class="t-price mono">3 000–8 000 DH</div><div class="t-unit">projet unique</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Corporate Communication</div><div class="t-tag">Une communication institutionnelle qui inspire confiance, en interne comme en externe.</div></div>
-            <div><div class="t-price mono">3 000–8 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tariff-group">
-        <h4>Création &amp; Contenu</h4>
-        <div class="tariff-list">
-          <div class="tariff-row">
-            <div><div class="t-name">Content Creation</div><div class="t-tag">Du contenu conçu pour arrêter le scroll et servir une stratégie.</div></div>
-            <div><div class="t-price mono">1 500–4 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Copywriting</div><div class="t-tag">Les mots qui font la différence entre lu et ignoré.</div></div>
-            <div><div class="t-price mono">1 000–3 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Photography</div><div class="t-tag">Des visuels qui donnent envie d'acheter avant même de lire la description.</div></div>
-            <div><div class="t-price mono">1 500–4 000 DH</div><div class="t-unit">par séance</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Videography &amp; Video Editing</div><div class="t-tag">Des vidéos qui retiennent l'attention plus de trois secondes.</div></div>
-            <div><div class="t-price mono">2 000–6 000 DH</div><div class="t-unit">par vidéo</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tariff-group">
-        <h4>Digital &amp; Technique</h4>
-        <div class="tariff-list">
-          <div class="tariff-row">
-            <div><div class="t-name">Web Design &amp; Development</div><div class="t-tag">Un site pensé pour convertir, pas seulement pour exister.</div></div>
-            <div><div class="t-price mono">4 000–15 000 DH</div><div class="t-unit">projet unique</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">SEO &amp; Web Visibility</div><div class="t-tag">Être trouvé au moment exact où l'on vous cherche.</div></div>
-            <div><div class="t-price mono">3 000–10 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Analytics &amp; Performance</div><div class="t-tag">Des décisions basées sur des chiffres, pas sur des impressions.</div></div>
-            <div><div class="t-price mono">1 500–4 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tariff-group">
-        <h4>Acquisition &amp; Croissance</h4>
-        <div class="tariff-list">
-          <div class="tariff-row">
-            <div><div class="t-name">Social Media Management</div><div class="t-tag">Une présence régulière qui construit une vraie communauté, pas juste des vues.</div></div>
-            <div><div class="t-price mono">3 000–6 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Advertising &amp; Paid Media</div><div class="t-tag">Des campagnes qui rapportent plus qu'elles ne coûtent.</div></div>
-            <div><div class="t-price mono">2 500–8 000 DH</div><div class="t-unit">par mois, hors budget pub</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Media Buying</div><div class="t-tag">Le bon message, à la bonne audience, au meilleur prix.</div></div>
-            <div><div class="t-price mono">2 000–6 000 DH</div><div class="t-unit">par mois, hors budget pub</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Influencer Marketing</div><div class="t-tag">Une crédibilité empruntée aux bonnes voix, pas aux plus grosses audiences.</div></div>
-            <div><div class="t-price mono">2 000–10 000 DH</div><div class="t-unit">par campagne, hors cachets</div></div>
-          </div>
-          <div class="tariff-row">
-            <div><div class="t-name">Lead Generation &amp; Sales</div><div class="t-tag">Des prospects qualifiés, livrés dans un tunnel qui les convertit.</div></div>
-            <div><div class="t-price mono">3 000–8 000 DH</div><div class="t-unit">par mois</div></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <section id="packs">
-    <span class="section-label">Formules combinées</span>
-    <h3 class="section-title">Trois façons de combiner ces services</h3>
-    <p class="section-sub">Les formules ci-dessous regroupent plusieurs services de la grille avec une réduction implicite par rapport à la somme au détail.</p>
+    <span class="section-label">Forfaits mensuels</span>
+    <h3 class="section-title">Trois niveaux d'accompagnement récurrent</h3>
+    <p class="section-sub">Facturés chaque mois. Le volume exact (nombre de posts, de formats) se cale sur les besoins du client à l'intérieur de chaque forfait.</p>
 
     <div class="packs">
 
       <div class="pack">
         <div>
           <div class="pack-name">Essentiel</div>
-          <div class="pack-tagline">Présence sociale, contenu et suivi de base</div>
+          <div class="pack-tagline">Une présence gérée et suivie chaque mois</div>
         </div>
-        <div class="pack-price mono">6 000–14 000 DH<small>par mois</small></div>
+        <div class="pack-price mono">3 000 DH<small>par mois</small></div>
         <ul>
-          <li>Social Media Management</li>
-          <li>Content Creation</li>
+          <li>Community management (Social Media Management)</li>
           <li>Analytics &amp; Performance</li>
+          <li>Content Creation</li>
         </ul>
         <div class="pack-for"><strong>Idéal pour :</strong> commerces locaux et indépendants qui démarrent leur présence digitale.</div>
       </div>
@@ -492,36 +379,64 @@
       <div class="pack featured">
         <div>
           <div class="pack-name">Croissance</div>
-          <div class="pack-tagline">Présence renforcée, site vitrine et acquisition</div>
+          <div class="pack-tagline">Plus de contenu, plus de visibilité</div>
         </div>
-        <div class="pack-price mono">8 500–24 000 DH<small>par mois</small></div>
-        <div class="pack-setup">+ 4 000–15 000 DH site web (paiement unique)</div>
+        <div class="pack-price mono">5 000–7 000 DH<small>par mois</small></div>
         <ul>
           <li>Tout le pack Essentiel</li>
-          <li>Web Design &amp; Development (site vitrine)</li>
-          <li>SEO &amp; Web Visibility</li>
-          <li>Advertising &amp; Paid Media</li>
+          <li>Content Creation renforcée : plus de formats, plus de volume</li>
         </ul>
-        <div class="pack-for"><strong>Idéal pour :</strong> entreprises en croissance qui veulent un site et des campagnes actives.</div>
+        <div class="pack-for"><strong>Idéal pour :</strong> entreprises qui veulent une présence de contenu plus soutenue.</div>
       </div>
 
       <div class="pack">
         <div>
           <div class="pack-name">360°</div>
-          <div class="pack-tagline">Accompagnement marketing complet</div>
+          <div class="pack-tagline">Tout le marketing récurrent, délégué</div>
         </div>
-        <div class="pack-price mono">10 000–25 000 DH<small>par mois</small></div>
-        <div class="pack-setup">Budget publicitaire non inclus</div>
+        <div class="pack-price mono">7 500–15 000 DH<small>par mois</small></div>
         <ul>
           <li>Tout le pack Croissance</li>
-          <li>Creative Direction &amp; Corporate Communication</li>
-          <li>Media Buying &amp; Lead Generation</li>
-          <li>Rendez-vous stratégique mensuel</li>
+          <li>Marketing Strategy &amp; Creative Direction</li>
+          <li>SEO &amp; Web Visibility</li>
+          <li>Advertising &amp; Paid Media, Media Buying</li>
+          <li>Lead Generation &amp; Sales</li>
+          <li>Corporate Communication &amp; Copywriting</li>
         </ul>
-        <div class="pack-for"><strong>Idéal pour :</strong> entreprises prêtes à déléguer entièrement leur marketing.</div>
+        <div class="pack-for"><strong>Idéal pour :</strong> entreprises prêtes à déléguer tout leur marketing récurrent.</div>
       </div>
 
     </div>
+  </section>
+
+  <section id="quote">
+    <span class="section-label">Prestations ponctuelles</span>
+    <h3 class="section-title">Ce qui se facture à part, sur devis</h3>
+    <p class="section-sub">Réalisées une fois, ou tous les 3 à 6 mois selon le client. Les montants ci-dessous sont indicatifs — le devis final dépend du projet et de l'entreprise.</p>
+
+    <div class="quote-list">
+      <div class="quote-item">
+        <div><div class="q-name">Web Design &amp; Development</div><div class="q-tag">Un site pensé pour convertir, pas seulement pour exister.</div></div>
+        <div><div class="q-price mono">≈ 4 000–15 000 DH</div><div class="q-unit">projet, sur devis</div></div>
+      </div>
+      <div class="quote-item">
+        <div><div class="q-name">Branding &amp; Identity</div><div class="q-tag">Une identité que l'on reconnaît avant même de lire le nom.</div></div>
+        <div><div class="q-price mono">≈ 3 000–8 000 DH</div><div class="q-unit">projet, sur devis</div></div>
+      </div>
+      <div class="quote-item">
+        <div><div class="q-name">Photography</div><div class="q-tag">Des visuels qui donnent envie d'acheter avant même de lire la description.</div></div>
+        <div><div class="q-price mono">≈ 1 500–4 000 DH</div><div class="q-unit">par séance, sur devis</div></div>
+      </div>
+      <div class="quote-item">
+        <div><div class="q-name">Videography &amp; Video Editing</div><div class="q-tag">Des vidéos qui retiennent l'attention plus de trois secondes.</div></div>
+        <div><div class="q-price mono">≈ 2 000–6 000 DH</div><div class="q-unit">par vidéo, sur devis</div></div>
+      </div>
+      <div class="quote-item">
+        <div><div class="q-name">Influencer Marketing</div><div class="q-tag">Une crédibilité empruntée aux bonnes voix, pas aux plus grosses audiences.</div></div>
+        <div><div class="q-price mono">≈ 2 000–10 000 DH</div><div class="q-unit">par campagne, hors cachets</div></div>
+      </div>
+    </div>
+    <p class="quote-note">Ces montants sont des repères de marché, pas des tarifs figés — à ajuster projet par projet.</p>
   </section>
 
   <section id="why">
@@ -530,16 +445,16 @@
 
     <div class="why-grid">
       <div class="why-card">
-        <span class="w-label">Fourchette, pas prix fixe</span>
-        <p>Chaque service dépend du volume et de la complexité (nombre de comptes, de pages, de canaux). Le prix exact se précise après un court brief — comme le fait la majorité des agences marketing au Maroc.</p>
+        <span class="w-label">Forfait vs sur devis</span>
+        <p>Les trois forfaits couvrent le travail récurrent, mensuel. Le site, le branding, la photo, la vidéo et les campagnes d'influence sont ponctuels — chacun est chiffré par devis selon le projet.</p>
       </div>
       <div class="why-card">
         <span class="w-label">Budget publicitaire à part</span>
-        <p>Les tarifs "Advertising", "Media Buying" et "Influencer Marketing" couvrent le travail de gestion. Le budget diffusé sur Meta, Google ou versé à un influenceur est payé séparément, directement au bénéficiaire.</p>
+        <p>Le forfait 360° couvre le travail de gestion des campagnes (Advertising, Media Buying). Le budget diffusé sur Meta ou Google est payé séparément, directement à la plateforme.</p>
       </div>
       <div class="why-card">
-        <span class="w-label">Projet unique vs mensuel</span>
-        <p>Le site web, le branding et la photographie sont facturés une fois par livrable. Les services de gestion (réseaux, SEO, pub, stratégie) sont facturés en abonnement mensuel car le travail est continu.</p>
+        <span class="w-label">Le volume ajuste le prix</span>
+        <p>À l'intérieur de chaque forfait, le nombre de publications, de formats ou de canaux gérés peut faire varier le prix final — précisé après un court brief.</p>
       </div>
     </div>
   </section>
@@ -550,8 +465,8 @@
 
     <div class="faq">
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Pourquoi une fourchette et pas un montant fixe ?</div>
-        <div class="faq-a">Le prix final dépend du volume et de la complexité du projet — nombre de comptes, de pages, de canaux. Après un court brief, je peux vous donner un chiffre précis, comme le font la plupart des agences marketing au Maroc.</div>
+        <div class="faq-q"><span class="q-mark">Q.</span> Pourquoi le site web n'est pas dans un forfait mensuel ?</div>
+        <div class="faq-a">Un site est un projet ponctuel : conception, développement, livraison une fois. Il est facturé séparément, sur devis, indépendamment du forfait mensuel choisi.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> Le budget publicitaire est-il inclus dans le prix de gestion ?</div>
@@ -566,8 +481,8 @@
         <div class="faq-a">Pour la présence sur les réseaux, une progression visible apparaît après 4 à 6 semaines. Pour la publicité, les premières données fiables arrivent après 1 à 2 semaines de diffusion, le temps que l'algorithme optimise.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="q-mark">Q.</span> Peut-on combiner des services à la carte plutôt qu'une formule ?</div>
-        <div class="faq-a">Oui. Les formules sont des points de départ pratiques, mais chaque service de la grille peut être pris séparément selon vos besoins réels.</div>
+        <div class="faq-q"><span class="q-mark">Q.</span> Peut-on changer de forfait en cours de route ?</div>
+        <div class="faq-a">Oui. Les forfaits évoluent avec les besoins du client — l'ajustement se fait au début de chaque mois, sans frais de changement.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> Y a-t-il un engagement minimum ?</div>
