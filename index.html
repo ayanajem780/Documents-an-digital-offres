@@ -247,6 +247,12 @@
 
   .wrap[dir="rtl"] .pack-price { font-family: 'Cairo', monospace; }
 
+  .pack-price .p-amount,
+  .quote-item .q-price {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
   .pack-price small {
     font-family: 'Manrope', sans-serif;
     font-size: 0.75rem;
@@ -431,7 +437,7 @@
           <div class="pack-name" data-ar="الأساسية">Essentiel</div>
           <div class="pack-tagline" data-ar="حضور يُدار ويُتابَع كل شهر">Une présence gérée et suivie chaque mois</div>
         </div>
-        <div class="pack-price mono"><span data-ar="3 000–4 000 درهم">3 000–4 000 DH</span><small data-ar="شهريًا">par mois</small></div>
+        <div class="pack-price mono"><span class="p-amount" data-ar="3 000–4 000 درهم">3 000–4 000 DH</span><small data-ar="شهريًا">par mois</small></div>
         <ul>
           <li data-ar="إدارة المجتمع (شبكات التواصل الاجتماعي)">Gestion de communauté (réseaux sociaux)</li>
           <li data-ar="التحليلات والأداء">Analyse &amp; performance</li>
@@ -447,7 +453,7 @@
           <div class="pack-name" data-ar="النمو">Croissance</div>
           <div class="pack-tagline" data-ar="محتوى أكثر، استراتيجية، ومتابعة أقرب">Plus de contenu, une stratégie, un suivi rapproché</div>
         </div>
-        <div class="pack-price mono"><span data-ar="6 000–8 000 درهم">6 000–8 000 DH</span><small data-ar="شهريًا">par mois</small></div>
+        <div class="pack-price mono"><span class="p-amount" data-ar="6 000–8 000 درهم">6 000–8 000 DH</span><small data-ar="شهريًا">par mois</small></div>
         <ul>
           <li data-ar="كل ما تتضمنه الباقة الأساسية">Tout le pack Essentiel</li>
           <li data-ar="إنشاء محتوى معزز: صيغ أكثر وحجم أكبر">Création de contenu renforcée : plus de formats, plus de volume</li>
@@ -465,7 +471,7 @@
           <div class="pack-name">360°</div>
           <div class="pack-tagline" data-ar="كل التسويق المتكرر، بتفويض كامل">Tout le marketing récurrent, délégué</div>
         </div>
-        <div class="pack-price mono"><span data-ar="8 500–15 000 درهم">8 500–15 000 DH</span><small data-ar="شهريًا">par mois</small></div>
+        <div class="pack-price mono"><span class="p-amount" data-ar="8 500–15 000 درهم">8 500–15 000 DH</span><small data-ar="شهريًا">par mois</small></div>
         <ul>
           <li data-ar="كل ما تتضمنه باقة النمو">Tout le pack Croissance</li>
           <li data-ar="استراتيجية تسويقية وإدارة إبداعية">Stratégie marketing &amp; direction créative</li>
