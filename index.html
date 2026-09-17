@@ -265,27 +265,51 @@ margin-top: 6px;
 /* Category blocks: one distinct pricing table per company size */
 .category-block { margin-top: 44px; }
 .category-block:first-of-type { margin-top: 28px; }
-.category-header {
+/* Category strip: name | description | headcount, in one bordered card */
+.category-strip {
+display: flex;
+align-items: stretch;
+border: 1px solid var(--line);
+border-radius: 12px;
+box-shadow: var(--shadow);
+overflow: hidden;
+margin-bottom: 22px;
+}
+@media (max-width: 700px) { .category-strip { flex-direction: column; } }
+.cat-seg {
+padding: 16px 22px;
 display: flex;
 align-items: center;
-gap: 14px;
-margin-bottom: 18px;
 }
-.category-header .category-badge {
-flex: none;
+.cat-seg + .cat-seg { border-inline-start: 1px solid var(--line); }
+@media (max-width: 700px) {
+.cat-seg + .cat-seg { border-inline-start: none; border-top: 1px solid var(--line); }
+}
+.cat-name {
+flex: 0 0 auto;
+min-width: 190px;
+background: var(--teal-soft);
+font-size: 1.05rem;
+font-weight: 800;
+color: var(--teal-deep);
+}
+.cat-desc {
+flex: 1;
+font-size: 0.92rem;
+color: var(--ink-soft);
+}
+.cat-size {
+flex: 0 0 auto;
+white-space: nowrap;
+background: var(--surface-alt);
 font-family: 'IBM Plex Mono', monospace;
-font-size: 0.68rem;
+font-size: 0.9rem;
 font-weight: 700;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-background: var(--pink);
-color: #fff;
-padding: 5px 12px;
-border-radius: 999px;
+color: var(--pink-deep);
+direction: ltr;
+unicode-bidi: isolate;
 }
-.wrap[dir="rtl"] .category-header .category-badge { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
-.category-header h4 { font-size: 1.15rem; font-weight: 700; color: var(--ink); }
-.category-header::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.wrap[dir="rtl"] .cat-size { font-family: 'Cairo', monospace; direction: rtl; unicode-bidi: normal; }
 /* One-off services on quote */
 .quote-list {
 display: grid;
@@ -396,9 +420,10 @@ footer .contact strong { color: var(--ink); }
 <p class="section-sub" data-ar="اختر أولاً فئة الشركة (صغيرة، PME، أو كبيرة)، ثم الباقة المناسبة: الأساسية، النمو، أو 360°. كل سعر إجمالي ويُدفع على 4 دفعات.">Choisis d'abord la catégorie de l'entreprise (petite, PME, ou grande), puis le forfait adapté : Essentiel, Croissance ou 360°. Chaque prix est un total, payable en 4 échéances.</p>
 
 <div class="category-block">
-<div class="category-header">
-<span class="category-badge" data-ar="فئة 1">Catégorie 1</span>
-<h4 data-ar="مقاولة صغيرة">Petite entreprise</h4>
+<div class="category-strip">
+<div class="cat-seg cat-name" data-ar="مقاولة صغيرة">Petite entreprise</div>
+<div class="cat-seg cat-desc" data-ar="هيكل صغير جدًا، فريق محدود">Très petite structure, équipe réduite</div>
+<div class="cat-seg cat-size" data-ar="1 إلى 10 موظفين">1–10 employés</div>
 </div>
 <div class="packs">
 
@@ -459,9 +484,10 @@ footer .contact strong { color: var(--ink); }
 </div>
 
 <div class="category-block">
-<div class="category-header">
-<span class="category-badge" data-ar="فئة 2">Catégorie 2</span>
-<h4 data-ar="PME">PME</h4>
+<div class="category-strip">
+<div class="cat-seg cat-name" data-ar="PME">PME</div>
+<div class="cat-seg cat-desc" data-ar="هيكل أكثر تطورًا">Structure plus développée</div>
+<div class="cat-seg cat-size" data-ar="11 إلى 250 موظفًا">11–250 employés</div>
 </div>
 <div class="packs">
 
@@ -522,9 +548,10 @@ footer .contact strong { color: var(--ink); }
 </div>
 
 <div class="category-block">
-<div class="category-header">
-<span class="category-badge" data-ar="فئة 3">Catégorie 3</span>
-<h4 data-ar="مقاولة كبيرة">Grande entreprise</h4>
+<div class="category-strip">
+<div class="cat-seg cat-name" data-ar="مقاولة كبيرة">Grande entreprise</div>
+<div class="cat-seg cat-desc" data-ar="مؤسسة كبيرة الحجم">Organisation importante</div>
+<div class="cat-seg cat-size" data-ar="أكثر من 250 موظفًا">250+ employés</div>
 </div>
 <div class="packs">
 
