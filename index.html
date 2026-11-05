@@ -407,6 +407,26 @@ display: block;
 margin-bottom: 8px;
 }
 .why-card p { margin: 0; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+.tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 26px; }
+@media (max-width: 760px) { .tech-grid { grid-template-columns: 1fr; } }
+.tech-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); background: var(--surface); display: flex; flex-direction: column; }
+.tech-head { background: var(--night); color: #fff; padding: 22px 22px 20px; }
+.tech-head .t-icon { display: inline-flex; gap: 3px; margin-bottom: 12px; }
+.tech-head .t-icon i { width: 8px; height: 8px; border-radius: 2px; background: #fff; display: block; }
+.tech-head .t-icon i.lime { background: var(--accent); }
+.tech-head .t-icon i.blue { background: var(--blue); }
+.tech-head h4 { font-size: 1.25rem; font-weight: 700; }
+.tech-head p { margin: 6px 0 0; color: #C9CAD6; font-size: 0.88rem; line-height: 1.45; }
+.tech-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding: 15px 22px; border-top: 1px solid var(--line); }
+.tech-row:first-of-type { border-top: none; }
+.tech-row .r-name { font-weight: 700; font-size: 0.92rem; }
+.tech-row .r-desc { font-size: 0.8rem; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
+.tech-row .r-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.86rem; color: var(--blue-deep); white-space: nowrap; text-align: end; direction: ltr; unicode-bidi: isolate; }
+.tech-row .r-unit { font-size: 0.68rem; color: var(--ink-faint); text-align: end; margin-top: 2px; }
+.wrap[dir="rtl"] .tech-row .r-price { font-family: 'Cairo', monospace; direction: rtl; unicode-bidi: normal; }
+@media (max-width: 480px) { .tech-row { flex-direction: column; } .tech-row .r-price, .tech-row .r-unit { text-align: start; } }
+.tech-foot { margin-top: auto; background: var(--accent-soft); border-top: 1px solid var(--line); padding: 12px 22px; font-size: 0.82rem; color: var(--ink-soft); }
+.tech-foot strong { color: var(--ink); }
 /* FAQ */
 .faq { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
 .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
@@ -443,7 +463,7 @@ footer .contact strong { color: var(--ink); }
 
 <div class="working-note">
 <span class="tag" data-ar="ملاحظة">Repère</span>
-<p><strong data-ar="ملاحظة لك:">Note pour toi :</strong> <span data-ar="الباقات الثلاث أدناه تعكس أسعارك الحقيقية، بتدرّج حسب حجم الشركة وبدفع 50% عند الانطلاق و50% بعد تسليم العمل. الخدمات الفردية (الموقع، الهوية، التصوير، الفيديو، التسويق عبر المؤثرين) تبقى تقديرية: يُحدَّد السعر النهائي حسب عرض السعر، والمشروع، والشركة.">les trois forfaits ci-dessous reprennent tes tarifs réels, avec un prix qui augmente selon la taille de l'entreprise et un paiement réparti en 2 fois : 50% au début, 50% à la livraison du travail. Les prestations ponctuelles (site, branding, photo, vidéo, influence) restent estimatives : le prix exact se fixe par devis, selon le projet et l'entreprise.</span></p>
+<p><strong data-ar="ملاحظة لك:">Note pour toi :</strong> <span data-ar="الباقات الثلاث أدناه تعكس أسعارك الحقيقية، بتدرّج حسب حجم الشركة وبدفع 50% عند الانطلاق و50% بعد تسليم العمل. الخدمات الفردية (الموقع، الأتمتة بالذكاء الاصطناعي، الهوية، التصوير، الفيديو، التسويق عبر المؤثرين) تبقى تقديرية: يُحدَّد السعر النهائي حسب عرض السعر، والمشروع، والشركة.">les trois forfaits ci-dessous reprennent tes tarifs réels, avec un prix qui augmente selon la taille de l'entreprise et un paiement réparti en 2 fois : 50% au début, 50% à la livraison du travail. Les prestations ponctuelles (site, automatisations IA, branding, photo, vidéo, influence) restent estimatives : le prix exact se fixe par devis, selon le projet et l'entreprise.</span></p>
 </div>
 
 <div class="intro">
@@ -651,6 +671,74 @@ footer .contact strong { color: var(--ink); }
 <p class="quote-note" data-ar="ملاحظة: هذه فقط فئة سعرية، وسيُحسب السعر النهائي بعرض سعر.">NB : il s'agit d'une fourchette de prix, le prix final sera calculé sur devis.</p>
 </section>
 
+<section id="tech">
+<span class="section-label" data-ar="الذكاء الاصطناعي والتطوير">IA &amp; Tech</span>
+<h3 class="section-title" data-ar="أتمتة بالذكاء الاصطناعي وتطوير المواقع">AI automation &amp; développement web</h3>
+<p class="section-sub" data-ar="ما يميز kréova عن وكالة تسويق تقليدية: نبني الأدوات التي تجعل الشركة تربح الوقت وتبيع أكثر. هذه الخدمات تُحتسب حسب المشروع، بالدفع على مرتين (50% عند الانطلاق، 50% بعد التسليم)، ويمكن إضافتها إلى أي باقة.">Ce qui distingue kréova d'une agence marketing classique : on construit les outils qui font gagner du temps et vendre plus. Ces prestations sont chiffrées par projet, payables en 2 fois (50% au début, 50% à la livraison), et peuvent s'ajouter à n'importe quel forfait.</p>
+<div class="tech-grid">
+
+<div class="tech-card">
+<div class="tech-head">
+<span class="t-icon" aria-hidden="true"><i></i><i class="lime"></i><i></i></span>
+<h4>AI automation</h4>
+<p data-ar="الذكاء الاصطناعي في خدمة العمل اليومي: أقل مهام يدوية، ردود أسرع، وعملاء لا يضيعون.">L'IA au service du quotidien de l'entreprise : moins de tâches manuelles, des réponses plus rapides, aucun client oublié.</p>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="روبوت محادثة واتساب / إنستغرام">Chatbot WhatsApp / Instagram</div><div class="r-desc" data-ar="يجيب على العملاء على مدار الساعة، يفرز الطلبات ويحجز المواعيد تلقائيًا.">Répond aux clients 24h/24, qualifie les demandes et prend les rendez-vous automatiquement.</div></div>
+<div><div class="r-price" data-ar="≈ 3 000 إلى 12 000 درهم">≈ 3 000 à 12 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="أتمتة العمليات">Automatisation des processus</div><div class="r-desc" data-ar="ربط الأدوات (CRM، الاستمارات، Google Sheets، البريد) لإلغاء المهام المتكررة: التذكيرات، عروض الأسعار، التقارير.">Connexion des outils (CRM, formulaires, Google Sheets, email) pour supprimer les tâches répétitives : relances, devis, reporting.</div></div>
+<div><div class="r-price" data-ar="≈ 2 500 إلى 15 000 درهم">≈ 2 500 à 15 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="توليد العملاء المحتملين آليًا">Génération de leads automatisée</div><div class="r-desc" data-ar="التنقيب، إثراء بيانات جهات الاتصال وسلاسل متابعة تعمل دون تدخل يدوي.">Prospection, enrichissement des contacts et séquences de suivi qui tournent sans intervention manuelle.</div></div>
+<div><div class="r-price" data-ar="≈ 4 000 إلى 18 000 درهم">≈ 4 000 à 18 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="وكيل ذكاء اصطناعي على المقاس">Agent IA sur mesure</div><div class="r-desc" data-ar="مساعد مدرَّب على وثائق الشركة وطرق عملها: دعم داخلي، خدمة العملاء، مساعدة في البيع.">Un assistant entraîné sur les documents et les process de l'entreprise : support interne, service client, aide à la vente.</div></div>
+<div><div class="r-price" data-ar="≈ 8 000 إلى 35 000 درهم">≈ 8 000 à 35 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="صيانة ومتابعة الأتمتة">Maintenance & suivi des automatisations</div><div class="r-desc" data-ar="مراقبة وتصحيح وتحسين مستمر للسيناريوهات المعمول بها.">Surveillance, corrections et améliorations continues des scénarios en place.</div></div>
+<div><div class="r-price" data-ar="≈ 800 إلى 3 000 درهم">≈ 800 à 3 000 DH</div><div class="r-unit" data-ar="شهريًا">par mois</div></div>
+</div>
+<div class="tech-foot"><strong data-ar="الأنسب لـ:">Idéal pour :</strong> <span data-ar="الشركات التي تتلقى الكثير من الرسائل أو الطلبات وتريد التعامل معها دون توظيف إضافي.">les entreprises qui reçoivent beaucoup de messages ou de demandes et veulent les traiter sans recruter.</span></div>
+</div>
+
+<div class="tech-card">
+<div class="tech-head">
+<span class="t-icon" aria-hidden="true"><i></i><i class="blue"></i><i></i></span>
+<h4 data-ar="تطوير المواقع">Développement web</h4>
+<p data-ar="مواقع مصمَّمة للتحويل، لا فقط للتواجد: سريعة، مناسبة للهواتف وسهلة التحديث.">Des sites pensés pour convertir, pas seulement pour exister : rapides, adaptés au mobile et faciles à faire évoluer.</p>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="صفحة هبوط">Landing page</div><div class="r-desc" data-ar="صفحة واحدة مخصصة لعرض أو حملة إعلانية، مع استمارة وتتبع للتحويلات.">Une page unique pensée pour une offre ou une campagne publicitaire, avec formulaire et suivi des conversions.</div></div>
+<div><div class="r-price" data-ar="≈ 2 000 إلى 6 000 درهم">≈ 2 000 à 6 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="موقع تعريفي">Site vitrine</div><div class="r-desc" data-ar="موقع متعدد الصفحات على المقاس لتقديم الشركة: تصميم، تحسين للهواتف، تهيئة أساسية لمحركات البحث.">Un site multi-pages sur mesure pour présenter l'entreprise : design, optimisation mobile, référencement de base.</div></div>
+<div><div class="r-price" data-ar="≈ 4 000 إلى 15 000 درهم">≈ 4 000 à 15 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="متجر إلكتروني">Site e-commerce</div><div class="r-desc" data-ar="متجر إلكتروني بكتالوج، دفع، توصيل وإدارة الطلبات.">Boutique en ligne avec catalogue, paiement, livraison et gestion des commandes.</div></div>
+<div><div class="r-price" data-ar="≈ 10 000 إلى 40 000 درهم">≈ 10 000 à 40 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="موقع مؤسسي / تطبيق ويب">Site institutionnel / application web</div><div class="r-desc" data-ar="للشركات الكبيرة والاحتياجات الخاصة: فضاءات العملاء، الحجز، لوحات القيادة.">Pour les grandes entreprises et les besoins spécifiques : espaces clients, réservation, tableaux de bord.</div></div>
+<div><div class="r-price" data-ar="≈ 15 000 إلى 60 000 درهم">≈ 15 000 à 60 000 DH</div><div class="r-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
+</div>
+<div class="tech-row">
+<div><div class="r-name" data-ar="الاستضافة والصيانة">Hébergement & maintenance</div><div class="r-desc" data-ar="تحديثات، نسخ احتياطية، أمان وتعديلات بسيطة على المحتوى.">Mises à jour, sauvegardes, sécurité et petites modifications de contenu.</div></div>
+<div><div class="r-price" data-ar="≈ 500 إلى 2 000 درهم">≈ 500 à 2 000 DH</div><div class="r-unit" data-ar="شهريًا">par mois</div></div>
+</div>
+<div class="tech-foot"><strong data-ar="ملاحظة:">À noter :</strong> <span data-ar="اسم النطاق والاستضافة السنوية يُدفعان بشكل منفصل.">le nom de domaine et l'hébergement annuel sont payés à part.</span></div>
+</div>
+
+</div>
+<p class="quote-note" data-ar="هذه المبالغ مرجعية، تُعدَّل حسب كل مشروع وحجم الشركة.">Ces montants sont des repères, à ajuster selon le projet et la taille de l'entreprise.</p>
+</section>
+
 <section id="quote">
 <span class="section-label" data-ar="خدمات فردية">Prestations ponctuelles</span>
 <h3 class="section-title" data-ar="ما يُحتسب بشكل منفصل، حسب عرض السعر">Ce qui se facture à part, sur devis</h3>
@@ -660,11 +748,6 @@ footer .contact strong { color: var(--ink); }
 <div class="quote-item">
 <div><div class="q-name" data-ar="الاستراتيجية التسويقية">Stratégie marketing &amp; positionnement</div><div class="q-tag" data-ar="التوجه الذي يجعل كل إجراء مربحًا، لا مجرد ظاهر. تشخيص للسوق والفئة المستهدفة، تحديد التموضع، وخطة عمل مرتبة حسب الأولوية ومُقيَّمة ماليًا لـ 3 إلى 12 شهرًا القادمة.">La direction qui rend chaque action rentable, pas seulement visible. Diagnostic du marché et de la cible, définition du positionnement, et plan d'action priorisé et chiffré pour les 3 à 12 prochains mois.</div></div>
 <div><div class="q-price mono" data-ar="≈ 3 000 إلى 15 000 درهم">≈ 3 000 à 15 000 DH</div><div class="q-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
-</div>
-
-<div class="quote-item">
-<div><div class="q-name" data-ar="تصميم وتطوير المواقع">Conception &amp; développement web</div><div class="q-tag" data-ar="موقع مصمَّم للتحويل، لا فقط للتواجد، حتى موقع مؤسسي متعدد الصفحات للشركات الكبيرة. تصميم على المقاس، تحسين للهواتف، تهيئة أساسية لمحركات البحث، وربط بأدوات التتبع.">Un site pensé pour convertir, pas seulement pour exister — jusqu'à un site institutionnel multi-pages pour les grandes entreprises. Design sur mesure, optimisation mobile, référencement de base et intégration des outils de suivi inclus.</div></div>
-<div><div class="q-price mono" data-ar="≈ 4 000 إلى 40 000 درهم">≈ 4 000 à 40 000 DH</div><div class="q-unit" data-ar="للمشروع، حسب عرض السعر">projet, sur devis</div></div>
 </div>
 
 <div class="quote-item">
@@ -713,7 +796,7 @@ footer .contact strong { color: var(--ink); }
 
 <div class="why-card">
 <span class="w-label" data-ar="باقة مقابل عرض سعر">Forfait vs sur devis</span>
-<p data-ar="الباقات الثلاث تغطي العمل المتكرر الشهري. الموقع، الهوية، التصوير، الفيديو، وحملات التسويق عبر المؤثرين هي خدمات فردية: يُحدَّد سعر كل واحدة بعرض سعر خاص حسب المشروع.">Les trois forfaits couvrent le travail récurrent, mensuel. Le site, le branding, la photo, la vidéo et les campagnes d'influence sont ponctuels : chacun est chiffré par devis selon le projet.</p>
+<p data-ar="الباقات الثلاث تغطي العمل المتكرر الشهري. الموقع، الأتمتة بالذكاء الاصطناعي، الهوية، التصوير، الفيديو، وحملات التسويق عبر المؤثرين هي خدمات فردية: يُحدَّد سعر كل واحدة بعرض سعر خاص حسب المشروع.">Les trois forfaits couvrent le travail récurrent, mensuel. Le site, les automatisations IA, le branding, la photo, la vidéo et les campagnes d'influence sont ponctuels : chacun est chiffré par devis selon le projet.</p>
 </div>
 
 <div class="why-card">
