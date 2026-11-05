@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Offres AN DIGITAL</title>
+<title>Offres kréova</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@400;600;700;800&family=Poppins:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap');
 :root {
 --bg: #FFFFFF;
 --surface: #FFFFFF;
---surface-alt: #F5F3F0;
---ink: #1E2B25;
---ink-soft: #5C6B61;
---ink-faint: #8B968D;
---teal: #3D785E;
---teal-deep: #26493A;
---teal-soft: #DCEAE2;
---pink: #C85980;
---pink-deep: #A83E64;
---pink-soft: #F6DEE7;
---line: #E6E2DC;
---shadow: 0 1px 2px rgba(30,43,37,0.04), 0 8px 24px -12px rgba(30,43,37,0.14);
+--surface-alt: #F4F5F8;
+--night: #0E0F1A;
+--ink: #0E0F1A;
+--ink-soft: #4A4C5C;
+--ink-faint: #9EA0AE;
+--blue: #4B5BFF;
+--blue-deep: #2F3CD4;
+--blue-soft: #ECEEFF;
+--accent: #C8F45A;
+--accent-deep: #0E0F1A;
+--accent-soft: #F4FBE1;
+--line: #E4E5EC;
+--shadow: 0 1px 2px rgba(14,15,26,0.04), 0 8px 24px -12px rgba(14,15,26,0.16);
 }
 * { box-sizing: border-box; }
 body {
@@ -45,7 +46,7 @@ font-family: 'Cairo', 'Manrope', sans-serif;
 font-family: 'Cairo', 'IBM Plex Mono', monospace;
 letter-spacing: 0;
 }
-h1, h2, h3, h4 { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; text-wrap: balance; margin: 0; }
+h1, h2, h3, h4 { font-family: 'Syne', 'Manrope', ui-sans-serif, system-ui, sans-serif; text-wrap: balance; margin: 0; }
 .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
 header.top {
 display: flex;
@@ -59,13 +60,51 @@ flex-wrap: wrap;
 .mark { flex: none; }
 .brand-text { flex: 1; min-width: 200px; }
 .wordmark {
-font-family: 'Poppins', 'Manrope', sans-serif;
-font-size: clamp(1.3rem, 1rem + 1.4vw, 1.7rem);
+font-family: 'Syne', 'Manrope', sans-serif;
+font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.1rem);
 font-weight: 800;
-letter-spacing: 0.01em;
+letter-spacing: -0.02em;
+color: var(--ink);
+line-height: 1;
 }
-.wm-an { color: var(--ink); }
-.wm-digital { color: var(--pink); }
+.wm-o {
+display: inline-block;
+width: 0.62em;
+height: 0.5em;
+border: 0.1em solid currentColor;
+border-radius: 0.16em;
+position: relative;
+margin: 0 0.02em;
+vertical-align: baseline;
+}
+.wm-o::after {
+content: "";
+position: absolute;
+width: 0.17em;
+height: 0.17em;
+background: var(--accent);
+left: 50%; top: 50%;
+transform: translate(-50%, -50%);
+}
+.wm-e { position: relative; }
+.wm-e::after {
+content: "";
+position: absolute;
+width: 0.15em;
+height: 0.15em;
+background: var(--blue);
+left: 0.24em;
+top: -0.02em;
+}
+.brand-tagline {
+font-family: 'IBM Plex Mono', monospace;
+font-size: 0.66rem !important;
+font-weight: 600;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--blue) !important;
+margin-top: 6px !important;
+}
 .brand-text p {
 margin: 4px 0 0;
 color: var(--ink-soft);
@@ -76,19 +115,19 @@ flex: none;
 font-family: 'Manrope', sans-serif;
 font-size: 0.82rem;
 font-weight: 700;
-color: var(--teal-deep);
-background: var(--teal-soft);
-border: 1px solid color-mix(in srgb, var(--teal) 35%, var(--line));
+color: var(--blue-deep);
+background: var(--blue-soft);
+border: 1px solid color-mix(in srgb, var(--blue) 35%, var(--line));
 border-radius: 999px;
 padding: 8px 16px;
 cursor: pointer;
 transition: background 0.15s ease;
 }
-.lang-toggle:hover { background: color-mix(in srgb, var(--teal) 22%, var(--surface)); }
-.lang-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.lang-toggle:hover { background: color-mix(in srgb, var(--blue) 22%, var(--surface)); }
+.lang-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .working-note {
-background: var(--pink-soft);
-border: 1px solid color-mix(in srgb, var(--pink) 35%, var(--line));
+background: var(--accent-soft);
+border: 1px solid color-mix(in srgb, var(--accent) 70%, var(--line));
 border-radius: 10px;
 padding: 14px 18px;
 font-size: 0.9rem;
@@ -105,8 +144,8 @@ font-size: 0.68rem;
 font-weight: 600;
 letter-spacing: 0.06em;
 text-transform: uppercase;
-background: var(--pink);
-color: #fff;
+background: var(--accent);
+color: var(--night);
 padding: 3px 8px;
 border-radius: 5px;
 margin-top: 2px;
@@ -123,7 +162,7 @@ font-size: 0.72rem;
 font-weight: 600;
 letter-spacing: 0.08em;
 text-transform: uppercase;
-color: var(--teal);
+color: var(--blue);
 display: block;
 margin-bottom: 8px;
 }
@@ -150,8 +189,8 @@ font-size: 0.68rem;
 font-weight: 600;
 letter-spacing: 0.05em;
 text-transform: uppercase;
-color: var(--teal-deep);
-background: var(--teal-soft);
+color: var(--blue-deep);
+background: var(--blue-soft);
 padding: 12px 16px;
 white-space: nowrap;
 }
@@ -166,7 +205,7 @@ table.segment-table .seg-name { font-weight: 700; color: var(--ink); white-space
 table.segment-table .seg-price {
 font-family: 'IBM Plex Mono', monospace;
 font-weight: 600;
-color: var(--pink-deep);
+color: var(--accent-deep);
 white-space: nowrap;
 direction: ltr;
 unicode-bidi: isolate;
@@ -192,13 +231,13 @@ flex-direction: column;
 gap: 16px;
 box-shadow: var(--shadow);
 }
-.pack.featured { border-color: color-mix(in srgb, var(--teal) 45%, var(--line)); position: relative; }
+.pack.featured { border: 1.5px solid var(--blue); position: relative; }
 .pack.featured::before {
 content: attr(data-badge);
 position: absolute;
 top: -11px;
 inset-inline-start: 22px;
-background: var(--teal);
+background: var(--blue);
 color: #fff;
 font-family: 'IBM Plex Mono', monospace;
 font-size: 0.65rem;
@@ -218,7 +257,7 @@ letter-spacing: 0;
 font-family: 'IBM Plex Mono', monospace;
 font-size: 1.55rem;
 font-weight: 600;
-color: var(--teal-deep);
+color: var(--blue-deep);
 font-variant-numeric: tabular-nums;
 line-height: 1.25;
 }
@@ -240,10 +279,10 @@ margin-top: 2px;
 .wrap[dir="rtl"] .pack-price small { font-family: 'Cairo', sans-serif; }
 .pack ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
 .pack li { font-size: 0.88rem; color: var(--ink); display: flex; gap: 8px; line-height: 1.4; }
-.pack li.pack-plus { color: var(--pink-deep); font-style: italic; }
-.pack li.pack-plus::before { background: var(--pink); }
+.pack li.pack-plus { color: var(--blue-deep); font-style: italic; }
+.pack li.pack-plus::before { background: var(--accent); }
 .pack li.pack-volume {
-background: var(--teal-soft);
+background: var(--blue-soft);
 border-radius: 8px;
 padding: 8px 10px;
 margin: 2px 0;
@@ -257,7 +296,7 @@ flex: none;
 width: 6px;
 height: 6px;
 border-radius: 50%;
-background: var(--teal);
+background: var(--blue);
 margin-top: 6px;
 }
 .pack-for { border-top: 1px solid var(--line); padding-top: 12px; font-size: 0.82rem; color: var(--ink-soft); }
@@ -288,10 +327,10 @@ align-items: center;
 .cat-name {
 flex: 0 0 auto;
 min-width: 190px;
-background: var(--teal-soft);
+background: var(--blue-soft);
 font-size: 1.05rem;
 font-weight: 800;
-color: var(--teal-deep);
+color: var(--blue-deep);
 }
 .cat-desc {
 flex: 1;
@@ -305,7 +344,7 @@ background: var(--surface-alt);
 font-family: 'IBM Plex Mono', monospace;
 font-size: 0.9rem;
 font-weight: 700;
-color: var(--pink-deep);
+color: var(--accent-deep);
 direction: ltr;
 unicode-bidi: isolate;
 }
@@ -330,7 +369,7 @@ gap: 12px;
 }
 .quote-item .q-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
 .quote-item .q-tag { font-size: 0.8rem; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
-.quote-item .q-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.86rem; color: var(--pink-deep); text-align: end; white-space: nowrap; }
+.quote-item .q-price { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.86rem; color: var(--accent-deep); text-align: end; white-space: nowrap; }
 .quote-item .q-unit { font-size: 0.68rem; color: var(--ink-faint); text-align: end; margin-top: 2px; }
 .wrap[dir="rtl"] .quote-item .q-price { font-family: 'Cairo', monospace; }
 @media (max-width: 480px) {
@@ -363,7 +402,7 @@ font-size: 0.68rem;
 font-weight: 600;
 letter-spacing: 0.05em;
 text-transform: uppercase;
-color: var(--teal);
+color: var(--blue);
 display: block;
 margin-bottom: 8px;
 }
@@ -372,7 +411,7 @@ margin-bottom: 8px;
 .faq { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
 .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
 .faq-q { font-weight: 700; font-size: 0.98rem; color: var(--ink); display: flex; gap: 10px; }
-.faq-q .q-mark { flex: none; color: var(--pink); font-family: 'Manrope', sans-serif; font-weight: 700; }
+.faq-q .q-mark { flex: none; color: var(--blue); font-family: 'Manrope', sans-serif; font-weight: 700; }
 .wrap[dir="rtl"] .faq-q .q-mark { font-family: 'Cairo', sans-serif; }
 .faq-a { margin-block-start: 8px; margin-inline-start: 22px; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; }
 footer {
@@ -393,12 +432,10 @@ footer .contact strong { color: var(--ink); }
 <body>
 <div class="wrap" id="pageWrap" dir="ltr">
 <header class="top">
-<svg class="mark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M6 27C6 27 8 15 15 13C20.5 11.4 19 20 24.5 18C28 16.8 27.5 10 31.5 9" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" fill="none"/>
-<circle cx="32.5" cy="8" r="3.4" fill="var(--pink)"/>
-</svg>
+<svg class="mark" width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="44" height="44" rx="10" fill="#0E0F1A"/><rect x="9" y="9" width="6.5" height="6.5" rx="1" fill="#FFFFFF"/><rect x="9" y="17" width="6.5" height="6.5" rx="1" fill="#FFFFFF"/><rect x="9" y="25" width="6.5" height="6.5" rx="1" fill="#FFFFFF"/><rect x="17" y="17" width="6.5" height="6.5" rx="1" fill="#FFFFFF"/><rect x="25" y="9" width="6.5" height="6.5" rx="1" fill="#C8F45A"/><rect x="25" y="25" width="6.5" height="6.5" rx="1" fill="#FFFFFF"/></svg>
 <div class="brand-text">
-<h1 class="wordmark"><span class="wm-an">AN</span><span class="wm-digital">DIGITAL</span></h1>
+<h1 class="wordmark" aria-label="kréova">kr<span class="wm-e">e</span><span class="wm-o" aria-hidden="true"></span>va</h1>
+<p class="brand-tagline">Strategy behind every pixel</p>
 <p data-ar="قائمة العروض والتفاصيل، للاطّلاع أثناء لقاء العميل">Grille d'offres &amp; explications budget, à consulter en rendez-vous client</p>
 </div>
 <button type="button" class="lang-toggle" id="langToggle">العربية</button>
@@ -731,7 +768,7 @@ footer .contact strong { color: var(--ink); }
 </section>
 
 <footer>
-<div class="contact"><strong>AN DIGITAL</strong> <span data-ar="، أكادير، المغرب">, Agadir, Maroc</span></div>
+<div class="contact"><strong>kréova</strong> <span data-ar="، أكادير، المغرب">, Agadir, Maroc</span></div>
 <div class="contact"><span class="contact-phone">+212 660 147 345</span></div>
 </footer>
 
@@ -741,7 +778,7 @@ footer .contact strong { color: var(--ink); }
 var wrap = document.getElementById('pageWrap');
 var toggle = document.getElementById('langToggle');
 if (!wrap || !toggle) return;
-var STORAGE_KEY = 'an-digital-offres-lang';
+var STORAGE_KEY = 'kreova-offres-lang';
 var els = wrap.querySelectorAll('[data-ar]');
 els.forEach(function (el) {
 el.dataset.fr = el.textContent;
